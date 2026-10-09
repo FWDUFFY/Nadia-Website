@@ -20,7 +20,7 @@ process.chdir(fileURLToPath(new URL("..", import.meta.url)));
 const HAUSA_TEXT = "ɓɗƙƁƊƘ";
 const HAUSA_RANGE = "U+0181, U+018A, U+0198-0199, U+0253, U+0257";
 const FAMILIES = [
-  { family: "Fraunces", axes: ["opsz,wght,SOFT@9..144,500..600,0..100", "opsz,wght@9..144,500..600"], keep: ["latin", "latin-ext", "arabic"] },
+  { family: "Fraunces", axes: ["opsz,wght@9..144,500..600"]  /* no SOFT axis: it costs ~51 KB on the critical path */, keep: ["latin", "latin-ext", "arabic"] },
   { family: "Nunito Sans", axes: ["opsz,wght@6..12,400..700"], keep: ["latin", "latin-ext", "arabic"] },
   { family: "Noto Naskh Arabic", axes: ["wght@400..600"], keep: ["latin", "latin-ext", "arabic"] },
   { family: "Noto Sans", axes: ["wght@400..700"], keep: ["hausa"], text: HAUSA_TEXT, range: HAUSA_RANGE },
@@ -84,13 +84,32 @@ for (const spec of FAMILIES) {
 }
 
 // Metric-compatible fallback for the body font, to limit layout shift while Nunito Sans loads.
-out += `/* Fallback with Nunito Sans metrics, used until the real font has loaded (limits layout shift). */
+out += `/* Metric-matched local fallbacks, used until the real fonts have loaded, so the swap
+   does not move the layout. Values measured in Chrome (canvas measureText / font bounding
+   box) against the web fonts: size-adjust = width ratio, ascent/descent = web font metrics
+   divided by size-adjust. Re-measure if a family changes (scratchpad qa/metrics.js). */
 @font-face {
   font-family: "Nunito Sans Fallback";
   src: local("Arial"), local("Liberation Sans"), local("Helvetica");
-  size-adjust: 103%;
-  ascent-override: 101%;
-  descent-override: 35%;
+  size-adjust: 101.5%;
+  ascent-override: 99.5%;
+  descent-override: 34.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia"), local("Georgia Bold");
+  size-adjust: 76.1%;
+  ascent-override: 128.8%;
+  descent-override: 34.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Noto Naskh Arabic Fallback";
+  src: local("Geeza Pro");
+  size-adjust: 103.7%;
+  ascent-override: 103.2%;
+  descent-override: 60.8%;
   line-gap-override: 0%;
 }
 `;

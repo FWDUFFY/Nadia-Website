@@ -22,7 +22,7 @@
 window.IFSHHE_COUNTRIES = [
   { id: "729", code: "sd", year: "", lat: 15.5, lon: 30.5 },               // Sudan
   { id: "566", code: "ng", year: "", lat: 9.1, lon: 8.7 },                 // Nigeria
-  { id: "834", code: "tz", year: "", lat: -6.4, lon: 35.0 },               // Tanzania
+  { id: "834", code: "tz", year: "2026", lat: -6.4, lon: 35.0 },           // Tanzania (RDTC, Moshi, February 2026)
   { id: "826", code: "gb", year: "", lat: 54.0, lon: -2.5, home: true },   // United Kingdom
 ];
 
@@ -47,8 +47,17 @@ window.IFSHHE_PARTNERS = [
  * initials. `link` is optional (LinkedIn, ORCID, hospital profile).
  */
 window.IFSHHE_MEMBERS = [
-  // { name: "Dr Jane Doe", role: "Consultant in Sexual Health and HIV", photo: "/images/members/jane-doe.jpg",
-  //   roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // The February 2026 course faculty (from the course faculty slide).
+  // DO NOT PUBLISH until each person has agreed to appear on the site.
+  // To switch a card on, remove the two slashes at the start of that line.
+  // { name: "Nadia Ahmed", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Nasra Batchu", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Claire Fuller", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Katie Humphries", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Kim Madundo", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Rasha Omer", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Victoria Poon", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
+  // { name: "Luciana Rubinstein", role: "Volunteer faculty", photo: "", roleTranslations: { ar: "", sw: "", ha: "" }, link: "" },
 ];
 
 /*

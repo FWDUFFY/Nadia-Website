@@ -35,12 +35,15 @@
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="/" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
-        <img class="brand-logo" src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="124px" width="726" height="375" alt="" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/images/logo-160.webp 160w, /images/logo-320.webp 320w" sizes="124px">
+          <img class="brand-logo" src="/images/logo-160.png" srcset="/images/logo-160.png 160w, /images/logo-320.png 320w" sizes="124px" width="320" height="165" alt="" decoding="async">
+        </picture>
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
         <div class="drawer-head">
           <span class="drawer-title" data-i18n="nav.menu">Menu</span>
-          <button class="drawer-close" type="button" id="drawer-close" aria-label="Close menu" data-i18n-attr="aria-label:nav.close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+          <a class="drawer-close" href="#top" id="drawer-close" aria-label="Close menu" data-i18n-attr="aria-label:nav.close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
         </div>
         <ul class="nav-list" role="list">
           <li><a href="/#about" data-i18n="nav.about">About</a></li>
@@ -79,10 +82,10 @@
             </ul>
           </div>
         </div>
-        <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <a class="menu-toggle" href="#site-nav" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
           <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
           <span class="bars" aria-hidden="true"></span>
-        </button>
+        </a>
       </div>
     </div>
   </header>
@@ -116,7 +119,10 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <a class="footer-logo" href="/" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
-          <img src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="116px" width="726" height="375" alt="" decoding="async" loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="/images/logo-160.webp 160w, /images/logo-320.webp 320w" sizes="116px">
+            <img src="/images/logo-160.png" srcset="/images/logo-160.png 160w, /images/logo-320.png 320w" sizes="116px" width="320" height="165" alt="" decoding="async" loading="lazy">
+          </picture>
         </a>
         <p class="footer-sub" data-i18n="brand.sub">Sexual health · HIV · Hepatitis education</p>
         <p class="footer-tagline" data-i18n="footer.tagline">Sexual health, HIV and hepatitis education — designed with local clinicians, not for them.</p>

@@ -125,10 +125,13 @@ document.documentElement.classList.add("js");
     updateFloat();
   }
   if (nav && toggle) {
-    toggle.addEventListener("click", () => setDrawer(!drawerOpen));
-    drawerClose && drawerClose.addEventListener("click", () => setDrawer(false));
+    // The toggle and close controls are links (#site-nav / #top) so the drawer also
+    // works without JavaScript via :target; with JavaScript we take over the click.
+    toggle.addEventListener("click", (e) => { e.preventDefault(); setDrawer(!drawerOpen); });
+    drawerClose && drawerClose.addEventListener("click", (e) => { e.preventDefault(); setDrawer(false); });
     backdrop && backdrop.addEventListener("click", () => setDrawer(false));
-    nav.addEventListener("click", (e) => { if (e.target.closest("a[href^='#']")) setDrawer(false); });
+    nav.addEventListener("click", (e) => { if (e.target.closest("a[href^='#']") && !e.target.closest("#drawer-close")) setDrawer(false); });
+    if (location.hash === "#site-nav") history.replaceState(null, "", location.pathname + location.search);
     nav.addEventListener("keydown", (e) => {
       if (!drawerOpen) return;
       if (e.key === "Escape") { e.preventDefault(); setDrawer(false); return; }

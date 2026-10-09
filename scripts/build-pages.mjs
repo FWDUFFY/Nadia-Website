@@ -63,6 +63,16 @@ function render(source, page, lang) {
     $(el).text(v);
   });
   $("[data-i18n-alt]").each((_, el) => { const v = t($(el).attr("data-i18n-alt"), lang); if (v !== null) $(el).attr("alt", v); });
+  // Hero headline: wrap the last word in the arc-underline span at build time so
+  // the page paints its final layout before any JavaScript runs (no layout shift;
+  // main.js only does this itself on the un-built source page).
+  $("#hero-title").each((_, el) => {
+    const words = $(el).text().trim().split(/\s+/);
+    const last = words.pop();
+    if (!last) return;
+    $(el).text(words.length ? words.join(" ") + " " : "");
+    $(el).append(`<span class="u-arc">${last.replace(/&/g, "&amp;").replace(/</g, "&lt;")}<svg viewBox="0 0 220 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10 C 60 2, 160 2, 217 9"></path></svg></span>`);
+  });
   $("[data-i18n-attr]").each((_, el) => {
     for (const pair of $(el).attr("data-i18n-attr").split(";")) {
       const i = pair.indexOf(":");

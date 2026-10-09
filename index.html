@@ -25,7 +25,7 @@
 
   <link rel="preload" href="/fonts/fraunces-500-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/nunito-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" imagesrcset="/images/lecture-room-800.avif 800w, /images/lecture-room-1200.avif 1200w, /images/lecture-room-1600.avif 1600w" imagesizes="(min-width: 960px) 30vw, 100vw" type="image/avif">
+  <link rel="preload" as="image" imagesrcset="/images/lecture-room-800.avif 800w, /images/lecture-room-1200.avif 1200w, /images/lecture-room-1600.avif 1600w" imagesizes="(min-width: 960px) 30vw, 100vw" type="image/avif" fetchpriority="high">
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/map.css">
@@ -65,15 +65,18 @@
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
-        <img class="brand-logo" src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="124px" width="726" height="375" alt="" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/images/logo-160.webp 160w, /images/logo-320.webp 320w" sizes="124px">
+          <img class="brand-logo" src="/images/logo-160.png" srcset="/images/logo-160.png 160w, /images/logo-320.png 320w" sizes="124px" width="320" height="165" alt="" decoding="async">
+        </picture>
       </a>
 
       <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
         <div class="drawer-head">
           <span class="drawer-title" data-i18n="nav.menu">Menu</span>
-          <button class="drawer-close" type="button" id="drawer-close" aria-label="Close menu" data-i18n-attr="aria-label:nav.close">
+          <a class="drawer-close" href="#top" id="drawer-close" aria-label="Close menu" data-i18n-attr="aria-label:nav.close">
             <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
-          </button>
+          </a>
         </div>
         <ul class="nav-list" role="list">
           <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -113,10 +116,10 @@
             </ul>
           </div>
         </div>
-        <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <a class="menu-toggle" href="#site-nav" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
           <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
           <span class="bars" aria-hidden="true"></span>
-        </button>
+        </a>
       </div>
     </div>
   </header>
@@ -147,15 +150,15 @@
               <source type="image/webp" srcset="/images/lecture-room-480.webp 480w, /images/lecture-room-800.webp 800w, /images/lecture-room-1200.webp 1200w, /images/lecture-room-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 100vw">
               <img src="/images/lecture-room-1200.jpg" srcset="/images/lecture-room-480.jpg 480w, /images/lecture-room-800.jpg 800w, /images/lecture-room-1200.jpg 1200w, /images/lecture-room-1600.jpg 1600w" sizes="(min-width: 960px) 30vw, 100vw" width="1600" height="1200" alt="Clinicians in white coats listening to an IFSHHE faculty member during a training session in Moshi, Tanzania" data-i18n-alt="hero.photoAlt" class="ph-lecture-room" decoding="async" fetchpriority="high">
             </picture>
-          </div>
           <div class="collage-oval">
-            <picture>
-              <source type="image/avif" srcset="/images/workshop-circle-480.avif 480w, /images/workshop-circle-800.avif 800w" sizes="(min-width: 960px) 18vw, 40vw">
-              <source type="image/webp" srcset="/images/workshop-circle-480.webp 480w, /images/workshop-circle-800.webp 800w" sizes="(min-width: 960px) 18vw, 40vw">
-              <img src="/images/workshop-circle-800.jpg" srcset="/images/workshop-circle-480.jpg 480w, /images/workshop-circle-800.jpg 800w" sizes="(min-width: 960px) 18vw, 40vw" width="1600" height="1104" alt="" class="ph-workshop-circle" decoding="async" loading="lazy">
-            </picture>
+              <picture>
+                <source type="image/avif" srcset="/images/workshop-circle-480.avif 480w, /images/workshop-circle-800.avif 800w" sizes="(min-width: 960px) 18vw, 40vw">
+                <source type="image/webp" srcset="/images/workshop-circle-480.webp 480w, /images/workshop-circle-800.webp 800w" sizes="(min-width: 960px) 18vw, 40vw">
+                <img src="/images/workshop-circle-800.jpg" srcset="/images/workshop-circle-480.jpg 480w, /images/workshop-circle-800.jpg 800w" sizes="(min-width: 960px) 18vw, 40vw" width="1600" height="1104" alt="" class="ph-workshop-circle" decoding="async">
+              </picture>
+            </div>
           </div>
-          <figcaption class="collage-caption" data-i18n="hero.caption">Sexual health training with the Regional Dermatology Training Centre, Moshi, Tanzania</figcaption>
+          <figcaption class="collage-caption" data-i18n="hero.caption">Sexual health training with the Regional Dermatology Training Centre, Moshi, Tanzania · February 2026</figcaption>
         </figure>
       </div>
     </section>
@@ -328,15 +331,17 @@
             <article class="country-panel" id="country-tz" data-country="tz" aria-labelledby="country-tz-title">
               <span class="country-code" aria-hidden="true">TZ</span>
               <h3 id="country-tz-title" tabindex="-1" data-i18n="country.tz.name">Tanzania</h3>
-              <p class="country-partner"><span data-i18n="where.partnerLabel">Partner</span> · <span data-i18n="country.tz.partner">Regional Dermatology Training Centre (RDTC), Moshi · ILDS</span></p>
-              <p class="country-summary" data-i18n="country.tz.summary">Sexual health and STI education with the Regional Dermatology Training Centre in Moshi, supported by the International League of Dermatological Societies.</p>
+              <p class="country-partner"><span data-i18n="where.partnerLabel">Partner</span> · <span data-i18n="country.tz.partner">RDTC, Moshi · ILDS · IFD</span></p>
+              <p class="country-year"><span data-i18n="where.yearLabel">Year</span> · <span data-i18n="country.tz.when">February 2026</span></p>
+              <p class="country-summary" data-i18n="country.tz.summary">The first dedicated, interactive short course in sexual health care designed for resource-limited settings, delivered with the Regional Dermatology Training Centre in Moshi and supported by the ILDS and the International Foundation for Dermatology.</p>
               <h4 data-i18n="where.didLabel">What we did</h4>
               <ul class="country-list">
-                <li data-i18n="country.tz.b1">Sexual health and STI teaching for RDTC students and staff</li>
-                <li data-i18n="country.tz.b2">Lectures, small-group workshops and reflective sessions on topics including STIs in pregnancy</li>
-                <li data-i18n="country.tz.b3">In partnership with RDTC, a centre founded in 1990 by the ILDS, Tanzania's Ministry of Health and KCMC</li>
+                <li data-i18n="country.tz.b1">Lectures, small-group case discussions and practical sessions for RDTC students and staff</li>
+                <li data-i18n="country.tz.b2">Sexual history taking, STI management, syphilis, testicular and pelvic examination, and STIs and HIV in pregnancy</li>
+                <li data-i18n="country.tz.b3">RDTC's own faculty co-taught sessions, so the course can be repeated locally</li>
+                <li data-i18n="country.tz.b4">Daily reflections and participant feedback shaped each day</li>
               </ul>
-              <p class="country-outcome"><strong data-i18n="where.ledLabel">What it led to</strong> <span data-i18n="country.tz.outcome">Teaching that sits inside an established regional training centre, reaching clinicians from across East Africa.</span></p>
+              <p class="country-outcome"><strong data-i18n="where.ledLabel">What it led to</strong> <span data-i18n="country.tz.outcome">A course that sits inside an established regional training centre and can be run again by local faculty.</span></p>
               <a class="btn btn-ghost btn-sm" href="#contact" data-interest="partner" data-country="tz" data-i18n="country.tz.cta">Ask about working with us in Tanzania</a>
             </article>
             <article class="country-panel" id="country-gb" data-country="gb" aria-labelledby="country-gb-title">
@@ -400,65 +405,78 @@
             <figure>
               <button class="bento-btn" type="button" data-lightbox data-full="/images/lecture-room-1600.jpg">
                 <picture>
-                  <source type="image/avif" srcset="/images/lecture-room-480.avif 480w, /images/lecture-room-800.avif 800w, /images/lecture-room-1200.avif 1200w, /images/lecture-room-1600.avif 1600w" sizes="(min-width: 960px) 55vw, 100vw">
-                  <source type="image/webp" srcset="/images/lecture-room-480.webp 480w, /images/lecture-room-800.webp 800w, /images/lecture-room-1200.webp 1200w, /images/lecture-room-1600.webp 1600w" sizes="(min-width: 960px) 55vw, 100vw">
-                  <img src="/images/lecture-room-1200.jpg" srcset="/images/lecture-room-480.jpg 480w, /images/lecture-room-800.jpg 800w, /images/lecture-room-1200.jpg 1200w, /images/lecture-room-1600.jpg 1600w" sizes="(min-width: 960px) 55vw, 100vw" width="1600" height="1200" alt="A full lecture room of clinicians in white coats facing a presenter and a slide titled Reflections" data-i18n-alt="gallery.alt1" class="ph-lecture-room" decoding="async" loading="lazy">
+                  <source type="image/avif" srcset="/images/lecture-room-480.avif 480w, /images/lecture-room-800.avif 800w, /images/lecture-room-1200.avif 1200w, /images/lecture-room-1600.avif 1600w" sizes="(min-width: 960px) 42vw, 100vw">
+                  <source type="image/webp" srcset="/images/lecture-room-480.webp 480w, /images/lecture-room-800.webp 800w, /images/lecture-room-1200.webp 1200w, /images/lecture-room-1600.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw">
+                  <img src="/images/lecture-room-1200.jpg" srcset="/images/lecture-room-480.jpg 480w, /images/lecture-room-800.jpg 800w, /images/lecture-room-1200.jpg 1200w, /images/lecture-room-1600.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" width="1600" height="1200" alt="A full lecture room of clinicians in white coats facing a presenter and a slide titled Reflections" data-i18n-alt="gallery.alt1" class="ph-lecture-room" decoding="async" loading="lazy">
                 </picture>
                 <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
               </button>
-              <figcaption class="bento-cap" data-i18n="gallery.cap1">Reflections at the end of a teaching day, Regional Dermatology Training Centre, Moshi, Tanzania</figcaption>
+              <figcaption class="bento-cap" data-i18n="gallery.cap1">Reflections at the end of a teaching day, Regional Dermatology Training Centre, Moshi, Tanzania · February 2026</figcaption>
             </figure>
           </li>
           <li class="bento-item bento-item--2" data-reveal>
             <figure>
-              <button class="bento-btn" type="button" data-lightbox data-full="/images/teaching-flipchart-1200.jpg">
+              <button class="bento-btn" type="button" data-lightbox data-full="/images/thank-you-note-1200.jpg">
                 <picture>
-                  <source type="image/avif" srcset="/images/teaching-flipchart-480.avif 480w, /images/teaching-flipchart-800.avif 800w, /images/teaching-flipchart-1200.avif 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <source type="image/webp" srcset="/images/teaching-flipchart-480.webp 480w, /images/teaching-flipchart-800.webp 800w, /images/teaching-flipchart-1200.webp 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <img src="/images/teaching-flipchart-1200.jpg" srcset="/images/teaching-flipchart-480.jpg 480w, /images/teaching-flipchart-800.jpg 800w, /images/teaching-flipchart-1200.jpg 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw" width="1200" height="1600" alt="A faculty member speaking beside a flipchart listing causes of pelvic pain" data-i18n-alt="gallery.alt2" class="ph-teaching-flipchart" decoding="async" loading="lazy">
+                  <source type="image/avif" srcset="/images/thank-you-note-480.avif 480w, /images/thank-you-note-800.avif 800w, /images/thank-you-note-1200.avif 1200w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <source type="image/webp" srcset="/images/thank-you-note-480.webp 480w, /images/thank-you-note-800.webp 800w, /images/thank-you-note-1200.webp 1200w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <img src="/images/thank-you-note-1200.jpg" srcset="/images/thank-you-note-480.jpg 480w, /images/thank-you-note-800.jpg 800w, /images/thank-you-note-1200.jpg 1200w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw" width="1200" height="1600" alt="A handwritten sticky note reading: Have a beautiful evening! Thanks for today. Inspired me a lot" data-i18n-alt="gallery.alt2" class="ph-thank-you-note" decoding="async" loading="lazy">
                 </picture>
                 <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
               </button>
-              <figcaption class="bento-cap" data-i18n="gallery.cap2">A volunteer faculty member works through a case at the flipchart</figcaption>
+              <figcaption class="bento-cap" data-i18n="gallery.cap2">“Thanks for today” — a note left by a participant at the end of day two</figcaption>
             </figure>
           </li>
           <li class="bento-item bento-item--3" data-reveal>
             <figure>
               <button class="bento-btn" type="button" data-lightbox data-full="/images/small-group-1600.jpg">
                 <picture>
-                  <source type="image/avif" srcset="/images/small-group-480.avif 480w, /images/small-group-800.avif 800w, /images/small-group-1200.avif 1200w, /images/small-group-1600.avif 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <source type="image/webp" srcset="/images/small-group-480.webp 480w, /images/small-group-800.webp 800w, /images/small-group-1200.webp 1200w, /images/small-group-1600.webp 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <img src="/images/small-group-1200.jpg" srcset="/images/small-group-480.jpg 480w, /images/small-group-800.jpg 800w, /images/small-group-1200.jpg 1200w, /images/small-group-1600.jpg 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="Four clinicians in white coats and scrubs work through a worksheet together" data-i18n-alt="gallery.alt3" class="ph-small-group" decoding="async" loading="lazy">
+                  <source type="image/avif" srcset="/images/small-group-480.avif 480w, /images/small-group-800.avif 800w, /images/small-group-1200.avif 1200w, /images/small-group-1600.avif 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <source type="image/webp" srcset="/images/small-group-480.webp 480w, /images/small-group-800.webp 800w, /images/small-group-1200.webp 1200w, /images/small-group-1600.webp 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <img src="/images/small-group-1200.jpg" srcset="/images/small-group-480.jpg 480w, /images/small-group-800.jpg 800w, /images/small-group-1200.jpg 1200w, /images/small-group-1600.jpg 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="Three students in white coats and a faculty member in blue scrubs lean over a workbook together" data-i18n-alt="gallery.alt3" class="ph-small-group" decoding="async" loading="lazy">
                 </picture>
                 <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
               </button>
-              <figcaption class="bento-cap" data-i18n="gallery.cap3">Small-group case work during a workshop</figcaption>
+              <figcaption class="bento-cap" data-i18n="gallery.cap3">Small-group case work with RDTC students, Moshi, Tanzania · February 2026</figcaption>
             </figure>
           </li>
           <li class="bento-item bento-item--4" data-reveal>
             <figure>
-              <button class="bento-btn" type="button" data-lightbox data-full="/images/local-faculty-teaching-1600.jpg">
+              <button class="bento-btn" type="button" data-lightbox data-full="/images/case-discussion-1600.jpg">
                 <picture>
-                  <source type="image/avif" srcset="/images/local-faculty-teaching-480.avif 480w, /images/local-faculty-teaching-800.avif 800w, /images/local-faculty-teaching-1200.avif 1200w, /images/local-faculty-teaching-1600.avif 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <source type="image/webp" srcset="/images/local-faculty-teaching-480.webp 480w, /images/local-faculty-teaching-800.webp 800w, /images/local-faculty-teaching-1200.webp 1200w, /images/local-faculty-teaching-1600.webp 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <img src="/images/local-faculty-teaching-1200.jpg" srcset="/images/local-faculty-teaching-480.jpg 480w, /images/local-faculty-teaching-800.jpg 800w, /images/local-faculty-teaching-1200.jpg 1200w, /images/local-faculty-teaching-1600.jpg 1600w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="A lecturer stands in front of a slide titled Syphilis: the great imitator, facing students in white coats" data-i18n-alt="gallery.alt4" class="ph-local-faculty-teaching" decoding="async" loading="lazy">
+                  <source type="image/avif" srcset="/images/case-discussion-480.avif 480w, /images/case-discussion-800.avif 800w, /images/case-discussion-1200.avif 1200w, /images/case-discussion-1600.avif 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <source type="image/webp" srcset="/images/case-discussion-480.webp 480w, /images/case-discussion-800.webp 800w, /images/case-discussion-1200.webp 1200w, /images/case-discussion-1600.webp 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw">
+                  <img src="/images/case-discussion-1200.jpg" srcset="/images/case-discussion-480.jpg 480w, /images/case-discussion-800.jpg 800w, /images/case-discussion-1200.jpg 1200w, /images/case-discussion-1600.jpg 1600w" sizes="(min-width: 960px) 20vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="A small group seated on sofas discussing a printed anatomy sheet" data-i18n-alt="gallery.alt4" class="ph-case-discussion" decoding="async" loading="lazy">
                 </picture>
                 <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
               </button>
-              <figcaption class="bento-cap" data-i18n="gallery.cap4">A local faculty member teaches a session on syphilis at the Regional Dermatology Training Centre, Moshi, Tanzania</figcaption>
+              <figcaption class="bento-cap" data-i18n="gallery.cap4">Case discussion in small groups, Regional Dermatology Training Centre, Moshi, Tanzania · February 2026</figcaption>
             </figure>
           </li>
           <li class="bento-item bento-item--5" data-reveal>
             <figure>
-              <button class="bento-btn" type="button" data-lightbox data-full="/images/thank-you-note-1200.jpg">
+              <button class="bento-btn" type="button" data-lightbox data-full="/images/local-faculty-teaching-1600.jpg">
                 <picture>
-                  <source type="image/avif" srcset="/images/thank-you-note-480.avif 480w, /images/thank-you-note-800.avif 800w, /images/thank-you-note-1200.avif 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <source type="image/webp" srcset="/images/thank-you-note-480.webp 480w, /images/thank-you-note-800.webp 800w, /images/thank-you-note-1200.webp 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw">
-                  <img src="/images/thank-you-note-1200.jpg" srcset="/images/thank-you-note-480.jpg 480w, /images/thank-you-note-800.jpg 800w, /images/thank-you-note-1200.jpg 1200w" sizes="(min-width: 960px) 28vw, (min-width: 600px) 50vw, 100vw" width="1200" height="1600" alt="A handwritten sticky note reading: Have a beautiful evening! Thanks for today. Improved me a lot" data-i18n-alt="gallery.alt5" class="ph-thank-you-note" decoding="async" loading="lazy">
+                  <source type="image/avif" srcset="/images/local-faculty-teaching-480.avif 480w, /images/local-faculty-teaching-800.avif 800w, /images/local-faculty-teaching-1200.avif 1200w, /images/local-faculty-teaching-1600.avif 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw">
+                  <source type="image/webp" srcset="/images/local-faculty-teaching-480.webp 480w, /images/local-faculty-teaching-800.webp 800w, /images/local-faculty-teaching-1200.webp 1200w, /images/local-faculty-teaching-1600.webp 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw">
+                  <img src="/images/local-faculty-teaching-1200.jpg" srcset="/images/local-faculty-teaching-480.jpg 480w, /images/local-faculty-teaching-800.jpg 800w, /images/local-faculty-teaching-1200.jpg 1200w, /images/local-faculty-teaching-1600.jpg 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="A lecturer stands in front of a slide titled Syphilis: the great imitator, facing students in white coats" data-i18n-alt="gallery.alt5" class="ph-local-faculty-teaching" decoding="async" loading="lazy">
                 </picture>
                 <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
               </button>
-              <figcaption class="bento-cap" data-i18n="gallery.cap5">“Thanks for today” — a note left for the faculty at the end of a teaching day</figcaption>
+              <figcaption class="bento-cap" data-i18n="gallery.cap5">RDTC faculty co-teaching: a session on syphilis, Regional Dermatology Training Centre, Moshi, Tanzania · February 2026</figcaption>
+            </figure>
+          </li>
+          <li class="bento-item bento-item--6" data-reveal>
+            <figure>
+              <button class="bento-btn" type="button" data-lightbox data-full="/images/course-room-1600.jpg">
+                <picture>
+                  <source type="image/avif" srcset="/images/course-room-480.avif 480w, /images/course-room-800.avif 800w, /images/course-room-1200.avif 1200w, /images/course-room-1600.avif 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw">
+                  <source type="image/webp" srcset="/images/course-room-480.webp 480w, /images/course-room-800.webp 800w, /images/course-room-1200.webp 1200w, /images/course-room-1600.webp 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw">
+                  <img src="/images/course-room-1200.jpg" srcset="/images/course-room-480.jpg 480w, /images/course-room-800.jpg 800w, /images/course-room-1200.jpg 1200w, /images/course-room-1600.jpg 1600w" sizes="(min-width: 960px) 42vw, (min-width: 600px) 50vw, 100vw" width="1600" height="1200" alt="A presenter beside a slide titled Principles of STI Management in a bright classroom of students in white coats" data-i18n-alt="gallery.alt6" class="ph-course-room" decoding="async" loading="lazy">
+                </picture>
+                <span class="visually-hidden" data-i18n="gallery.open">View larger</span>
+              </button>
+              <figcaption class="bento-cap" data-i18n="gallery.cap6">Principles of STI management — a lecture at the Regional Dermatology Training Centre, Moshi, Tanzania · February 2026</figcaption>
             </figure>
           </li>
         </ul>
@@ -484,6 +502,14 @@
           <h2 id="people-title" data-i18n="people.title">Meet the volunteer faculty</h2>
           <p class="lede" data-i18n="people.lede">Our faculty are practising clinicians — doctors, nurses and educators in sexual health, HIV, infectious diseases and dermatology — who teach in their own time.</p>
         </div>
+        <figure class="people-photo" data-reveal>
+          <picture>
+            <source type="image/avif" srcset="/images/faculty-selfie-480.avif 480w, /images/faculty-selfie-800.avif 800w, /images/faculty-selfie-1200.avif 1200w, /images/faculty-selfie-1600.avif 1600w" sizes="(min-width: 1240px) 1180px, 100vw">
+            <source type="image/webp" srcset="/images/faculty-selfie-480.webp 480w, /images/faculty-selfie-800.webp 800w, /images/faculty-selfie-1200.webp 1200w, /images/faculty-selfie-1600.webp 1600w" sizes="(min-width: 1240px) 1180px, 100vw">
+            <img src="/images/faculty-selfie-1200.jpg" srcset="/images/faculty-selfie-480.jpg 480w, /images/faculty-selfie-800.jpg 800w, /images/faculty-selfie-1200.jpg 1200w, /images/faculty-selfie-1600.jpg 1600w" sizes="(min-width: 1240px) 1180px, 100vw" width="1600" height="1200" alt="Six smiling volunteer faculty members take a selfie on a tree-lined road" data-i18n-alt="people.photoAlt" class="ph-faculty-selfie" decoding="async" loading="lazy">
+          </picture>
+          <figcaption data-i18n="people.photoCaption">Volunteer faculty in Moshi, Tanzania, February 2026</figcaption>
+        </figure>
         <div class="people-grid" id="people-grid">
           <article class="card people-card people-card--soon" id="people-placeholder" data-reveal>
             <span class="icon-tile" aria-hidden="true"><svg class="icon"><use href="#i-users"/></svg></span>
@@ -628,7 +654,10 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <a class="footer-logo" href="#top" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
-          <img src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="116px" width="726" height="375" alt="" decoding="async" loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="/images/logo-160.webp 160w, /images/logo-320.webp 320w" sizes="116px">
+            <img src="/images/logo-160.png" srcset="/images/logo-160.png 160w, /images/logo-320.png 320w" sizes="116px" width="320" height="165" alt="" decoding="async" loading="lazy">
+          </picture>
         </a>
         <p class="footer-sub" data-i18n="brand.sub">Sexual health · HIV · Hepatitis education</p>
         <p class="footer-tagline" data-i18n="footer.tagline">Sexual health, HIV and hepatitis education — designed with local clinicians, not for them.</p>
