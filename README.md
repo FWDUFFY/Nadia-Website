@@ -128,7 +128,8 @@ Keep passwords in a password manager and switch on two-factor authentication on 
 ### Stack
 
 Static HTML/CSS/JS, no framework, no client-side templating. A small Node build renders the four
-language versions, bundles the stylesheet and stamps cache-busting hashes. Netlify serves `dist/`,
+language versions, bundles and minifies the stylesheet and scripts (esbuild), splits the
+translations into one small file per language, and stamps cache-busting hashes. Netlify serves `dist/`,
 hosts the contact form (Netlify Forms) and runs one function (`netlify/functions/visits.mjs`,
 Netlify Blobs) for the visitor counter. Node ≥ 22.12 (Netlify builds on 22; see `netlify.toml`).
 
@@ -151,10 +152,10 @@ Generated images, fonts, icons and `data/world.json` are **committed**, so a Net
 
 ```
 index.html, thank-you.html, 404.html   source pages (English inline + data-i18n keys)
-css/styles.css, css/map.css            styles (map.css is the map section only)
+css/styles.css, css/map.css            styles (map.css is the map section only; merged into styles.css in dist/)
 css/fonts.css, css/placeholders.css    generated; prepended to styles.css in dist/
 js/content.js                          editable data: countries, members, partners, social links
-js/i18n.js                             dictionaries + window.t(key, vars)
+js/i18n.js                             dictionaries + window.t(key, vars)  (dist/ gets js/i18n.<lang>.js, English + one language each)
 js/map.js, js/main.js                  behaviour (classic deferred scripts, globals)
 images/src/                            original photos + logo-transparent.png (committed)
 images/, fonts/, data/, favicon*, icon-*.png, apple-touch-icon.png   generated, committed
@@ -176,7 +177,12 @@ netlify.toml                           publish dir, headers (CSP), caching, redi
   from `meta.title` / `meta.description` (thank-you: `meta.thankYou.*` if defined);
 - sets `input[name="lang"]`, points the contact form `action` at the language's thank-you page,
   turns the language menu `a[data-lang]` into real links with `aria-current` on the active one;
-- on `/ar/`, swaps the Fraunces font preload for the Arabic face.
+- on `/ar/`, swaps the Fraunces font preload for the Arabic face (and preloads its Latin subset).
+
+`scripts/build.mjs` then merges `css/fonts.css + css/placeholders.css + css/styles.css + css/map.css`
+into one minified `dist/css/styles.css` (the `map.css` link is removed from the built pages), minifies
+`js/*.js`, and writes `dist/js/i18n.<lang>.js` (English plus that language, with `window.t`) so each
+page only downloads its own dictionary; the pages' `/js/i18n.js` reference is rewritten to match.
 
 A key missing from a language falls back to English; a key missing from English too is reported
 and the inline text is kept. Language switching is plain navigation between these pages — there is
