@@ -1,0 +1,46 @@
+{
+  "lecture-room": {
+    "source": "lecture-room.png",
+    "width": 2048,
+    "height": 1536,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#7f786d",
+    "lqip": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAwAA4BaJYgCdACyWyfmGYAA05+heZt4ftBYMPko1ZjeKAL5P4bGi2lpAJGQowgAAA==",
+    "mtime": 1791542001493.7205
+  },
+  "teaching-flipchart": {
+    "source": "teaching-flipchart.jpg",
+    "width": 3024,
+    "height": 4032,
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "color": "#7a736f",
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoQABUAPu1iqk4ppaQiMAgBMB2JQBYdgsqLxTqxUBZMyAAAzgX0lMAbCO04Sngjv7qHKf6o/OUjZI5blW4wWdgl1csfGuDzV6WWSOr0BX5fX0dCK2qbr6V9jwAAAA==",
+    "mtime": 1791542001481.686
+  },
+  "workshop-circle": {
+    "source": "workshop-circle.jpg",
+    "width": 3000,
+    "height": 2069,
+    "ratio": 0.6897,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#887f71",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAsAA4BaJQBOgBe3FHS8egAA/P8EYkbxZUnCn+af2anymwTuKfKjB7x/J6vZJO2yvdOm81Pfl17WNWhBp3SPWAA=",
+    "mtime": 1791542001475.69
+  }
+}

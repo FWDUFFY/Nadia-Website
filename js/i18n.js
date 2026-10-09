@@ -1,91 +1,261 @@
 /*
- * Translations. English is the source; any key missing from another language
- * falls back to English.
+ * Translations for the IFSHHE website.
  *
- * English text is taken word for word from Nadia's original site (ifshhe.com),
- * with gaps filled from the previous Netlify site. Where the English matches
- * the Netlify site, the Arabic/Kiswahili/Hausa is that site's translation;
- * the rest is a new draft. All of it should be checked by a native speaker.
+ * HOW TO EDIT (no coding knowledge needed):
+ *   - Every piece of text on the site has a short "key" (left) and the text
+ *     itself (right, in quotes). Change the text between the quotes only.
+ *   - English (the `en` block) is the source. If a key is missing from another
+ *     language, the English text is shown instead, so nothing ever goes blank.
+ *   - Keep the comma at the end of each line. If your text contains a double
+ *     quote, write it as \" (backslash + quote).
+ *   - Curly braces such as {name} or {n} are filled in automatically; keep them.
  *
- * Mark text in the HTML with data-i18n="key" (or data-i18n-alt for image alt).
+ * The page HTML marks text with data-i18n="key". The build step pre-renders one
+ * page per language from this file; the browser only uses t() for text that
+ * JavaScript creates (form messages, the visitor counter, member cards).
  */
 window.IFSHHE_I18N = {
   en: {
-    "skip": "Skip to content",
-    "brand.sub": "Sexual health · HIV education",
+    /* Page metadata */
+    "meta.title": "IFSHHE · Sexual health and HIV education, built with local clinicians",
+    "meta.description": "IFSHHE is a volunteer-led foundation of UK clinicians who work with health professionals in Sudan, Nigeria and Tanzania to build sexual health, HIV and hepatitis education that lasts.",
+
+    /* Global chrome */
+    "skip": "Skip to main content",
+    "brand.home": "IFSHHE — home",
+    "brand.sub": "Sexual health · HIV · Hepatitis education",
     "lang.label": "Language",
+    "lang.menu": "Choose language",
+    "nav.label": "Main navigation",
     "nav.menu": "Menu",
-    "nav.about": "Who we are",
+    "nav.close": "Close menu",
+    "nav.about": "About",
     "nav.work": "What we do",
     "nav.where": "Where we work",
-    "nav.impact": "Impact",
-    "nav.gallery": "Gallery",
-    "nav.members": "Members",
+    "nav.people": "Our people",
+    "nav.involved": "Get involved",
     "nav.contact": "Contact us",
+    "cta.float": "Get in touch",
+    "cta.floatLabel": "Go to the contact form",
 
-    "hero.kicker": "Independent · Volunteer-led · Worldwide",
-    "hero.title": "Building Sustainable Sexual Health and HIV Education Worldwide",
-    "hero.lede": "Strengthening healthcare systems through sustainable education, partnership and capacity building — designed with local clinicians, not for them.",
+    /* Hero */
+    "hero.kicker": "Independent · Volunteer-led · UK-based",
+    "hero.title": "Sexual health education that lasts.",
+    "hero.lede": "We are a volunteer-led foundation of UK clinicians. We work alongside doctors, nurses and educators in Sudan, Nigeria and Tanzania to build sexual health, HIV and hepatitis education that keeps going long after we go home — designed with local clinicians, not for them.",
     "hero.cta1": "Partner with us",
-    "hero.cta2": "Where we work",
-    "hero.photoAlt": "Clinicians at an IFSHHE training session",
+    "hero.cta2": "See where we work",
+    "hero.photoAlt": "Clinicians in white coats listening to an IFSHHE faculty member during a training session in Moshi, Tanzania",
+    "hero.caption": "Sexual health training with the Regional Dermatology Training Centre, Moshi, Tanzania",
 
-    "about.title": "Who we are",
-    "about.p1": "The International Foundation for Sexual Health and HIV Education (IFSHHE) is an independent, volunteer-led organisation dedicated to strengthening sexual health, HIV and hepatitis education worldwide.",
-    "about.p2": "We work in partnership with local healthcare professionals and organisations to deliver sustainable, culturally relevant education that builds capacity, supports service development and improves patient care.",
-    "about.photoAlt": "Workshop participants working together",
+    /* Partners strip */
+    "partners.label": "Working alongside",
+    "partners.note": "Partner names shown with their permission.",
 
-    "work.title": "What we do",
+    /* About */
+    "about.kicker": "Who we are",
+    "about.title": "Clinicians teaching clinicians",
+    "about.p1": "The International Foundation for Sexual Health and HIV Education (IFSHHE) is an independent, volunteer-led organisation. Our faculty are practising UK clinicians who give their time to strengthen sexual health, HIV and hepatitis education where it is needed most.",
+    "about.p2": "We work in partnership with local health professionals and organisations. Together we deliver education that fits the local health system, respects local culture and improves care for patients. We also help local educators take the teaching on, so it continues without us.",
+    "about.quote": "Designed with local clinicians, not for them.",
+    "about.photoAlt": "Health workers sit in a circle around an anatomy diagram on the floor during a small-group workshop",
+    "about.fact": "Volunteer-led · UK clinical faculty",
+    "about.chip1": "Independent",
+    "about.chip2": "Volunteer-led",
+    "about.chip3": "Co-designed locally",
+
+    /* What we do */
+    "work.kicker": "What we do",
+    "work.title": "Three things, done well",
+    "work.lede": "Everything we do comes back to one aim: more clinicians, more confident, in more places.",
     "work.p1.t": "Education and training",
-    "work.p1.d": "Delivering evidence-based education and training in sexually transmitted infections, HIV, hepatitis and related areas, tailored to local healthcare systems and workforce needs.",
-    "work.p2.t": "Capacity building",
-    "work.p2.d": "Working with local healthcare professionals and organisations to strengthen knowledge, develop local educators and support sustainable improvements in sexual health, HIV and hepatitis care.",
-    "work.p3.t": "Global partnerships",
-    "work.p3.d": "Building long-term partnerships with local organisations, universities and healthcare institutions to co-design and deliver sustainable education programmes.",
+    "work.p1.d": "Evidence-based teaching in sexually transmitted infections, HIV, hepatitis and sexual and reproductive health, shaped to the local workforce and the cases they see.",
+    "work.p2.t": "Building local capacity",
+    "work.p2.d": "We develop local clinical educators, support service improvement and leave behind materials that teams can keep using.",
+    "work.p3.t": "Lasting partnerships",
+    "work.p3.d": "Long-term relationships with hospitals, universities, professional societies and NGOs, so each visit builds on the last.",
 
-    "where.title": "Where we work",
-    "where.hint": "Select a highlighted country to see what we have done there.",
-    "where.fallback": "The map could not load. Use the list of countries instead.",
+    /* How we work */
+    "how.kicker": "How we work",
+    "how.title": "With partners, from the first conversation",
+    "how.s1.t": "Co-design",
+    "how.s1.d": "We start by listening. Local partners tell us what their clinicians need; we build the programme together.",
+    "how.s2.t": "Deliver",
+    "how.s2.d": "Volunteer faculty teach in person: lectures, case discussions and hands-on workshops, in small groups wherever we can.",
+    "how.s3.t": "Train the trainers",
+    "how.s3.d": "Local educators co-teach from day one, so the course belongs to them, not to us.",
+    "how.s4.t": "Sustain",
+    "how.s4.d": "We stay in touch, share materials, mentor and return when invited.",
+
+    /* Where we work (map) */
+    "where.kicker": "Where we work",
+    "where.title": "Four countries, one approach",
+    "where.hint": "Choose a highlighted country on the map, or use the list, to see what we have done there.",
+    "where.mapTitle": "Map of the countries where IFSHHE works",
+    "where.mapDesc": "Highlighted countries: United Kingdom, Sudan, Nigeria and Tanzania. Use the country list to read about each one.",
+    "where.fallback": "The map could not load. The country list below still works.",
+    "where.listLabel": "Countries where we work",
+    "where.panelLabel": "Country details",
+    "where.partnerLabel": "Partner",
+    "where.yearLabel": "Year",
+    "where.didLabel": "What we did",
+    "where.ledLabel": "What it led to",
+    "where.selected": "selected",
+    "where.homeLabel": "Home",
 
     "country.sd.name": "Sudan",
-    "country.sd.meta": "SHAWG Partnership",
-    "country.sd.summary": "Foundation STI training programme delivered in partnership with SHAWG.",
+    "country.sd.partner": "SHAWG",
+    "country.sd.summary": "A foundation programme in sexually transmitted infections, built and taught with SHAWG for clinicians across Sudan.",
+    "country.sd.b1": "Foundation STI training programme co-designed with SHAWG",
+    "country.sd.b2": "Case-based teaching on diagnosis and management of common STIs",
+    "country.sd.outcome": "Local clinicians now have a shared foundation course to build on.",
+    "country.sd.cta": "Ask about working with us in Sudan",
+
     "country.ng.name": "Nigeria",
-    "country.ng.meta": "International Partners",
-    "country.ng.summary": "Adolescent sexual and reproductive health workshop delivered with international partners.",
+    "country.ng.partner": "International partners",
+    "country.ng.summary": "An adolescent sexual and reproductive health workshop, delivered with international partners.",
+    "country.ng.b1": "Workshop on adolescent sexual and reproductive health",
+    "country.ng.b2": "Delivered with international partners",
+    "country.ng.outcome": "A starting point for further work with young people's health services in Nigeria.",
+    "country.ng.cta": "Ask about working with us in Nigeria",
+
     "country.tz.name": "Tanzania",
-    "country.tz.meta": "RDTC · ILDS",
-    "country.tz.summary": "Sexual health and STI education programme in partnership with RDTC and ILDS.",
+    "country.tz.partner": "Regional Dermatology Training Centre (RDTC), Moshi · ILDS",
+    "country.tz.summary": "Sexual health and STI education with the Regional Dermatology Training Centre in Moshi, supported by the International League of Dermatological Societies.",
+    "country.tz.b1": "Sexual health and STI teaching for RDTC students and staff",
+    "country.tz.b2": "Lectures, small-group workshops and reflective sessions on topics including STIs in pregnancy",
+    "country.tz.b3": "In partnership with RDTC, a centre founded in 1990 by the ILDS, Tanzania's Ministry of Health and KCMC",
+    "country.tz.outcome": "Teaching that sits inside an established regional training centre, reaching clinicians from across East Africa.",
+    "country.tz.cta": "Ask about working with us in Tanzania",
+
     "country.gb.name": "United Kingdom",
-    "country.gb.meta": "Volunteer Faculty",
-    "country.gb.summary": "Home of the volunteer faculty, educational development and international collaboration.",
+    "country.gb.partner": "Volunteer faculty",
+    "country.gb.summary": "Home of our volunteer faculty, where programmes are designed, materials are written and partnerships are coordinated.",
+    "country.gb.b1": "Volunteer clinical faculty from across the UK",
+    "country.gb.b2": "Curriculum design and teaching materials",
+    "country.gb.b3": "Partnership and visit coordination",
 
-    "impact.title": "Our impact",
-    "impact.lede": "IFSHHE measures its impact through participant feedback, knowledge assessments and long-term partnerships. Our goal is to build sustainable local capacity that continues beyond individual training programmes.",
-    "impact.s1.t": "Countries supported",
-    "impact.s1.d": "Sudan, Nigeria, Tanzania",
-    "impact.s2.t": "Healthcare professionals",
-    "impact.s2.d": "Building knowledge and skills through education and training.",
-    "impact.s3.t": "Partnerships",
-    "impact.s3.d": "Working with local organisations and international collaborators.",
-    "impact.s4.t": "Sustainable education",
-    "impact.s4.d": "Supporting long-term capacity through train-the-trainer models.",
+    /* Impact */
+    "impact.kicker": "Our impact",
+    "impact.title": "Measured by what lasts",
+    "impact.lede": "We ask every participant what they learned and what they will change. We check knowledge before and after each course. And we judge ourselves by one thing above all: whether the teaching carries on without us.",
+    "impact.s1.t": "Co-designed, every time",
+    "impact.s1.d": "Each programme is planned with the partner, not sent from the UK.",
+    "impact.s2.t": "Taught by local educators",
+    "impact.s2.d": "Local clinicians co-teach from the start and take the course forward.",
+    "impact.s3.t": "Checked, not assumed",
+    "impact.s3.d": "Participant feedback and knowledge checks shape the next visit.",
+    "impact.s4.t": "Partnerships that continue",
+    "impact.s4.d": "We keep in touch between visits and return when invited.",
 
+    /* Gallery */
+    "gallery.kicker": "In the room",
     "gallery.title": "Moments from the work",
+    "gallery.label": "Photo gallery",
+    "gallery.open": "View larger",
+    "gallery.close": "Close",
+    "gallery.cap1": "Reflections at the end of a teaching day, Regional Dermatology Training Centre, Moshi, Tanzania",
+    "gallery.cap2": "Small-group anatomy workshop with RDTC students, Tanzania",
+    "gallery.cap3": "A volunteer faculty member works through a case at the flipchart",
+    "gallery.alt1": "A full lecture room of clinicians in white coats facing a presenter and a slide titled Reflections",
+    "gallery.alt2": "Six clinicians seated in a circle, worksheets in hand, around a reproductive anatomy diagram on the floor",
+    "gallery.alt3": "A faculty member speaking beside a flipchart listing causes of pelvic pain",
 
-    "members.title": "Meet the volunteer faculty",
+    /* Our people */
+    "people.kicker": "Our people",
+    "people.title": "Meet the volunteer faculty",
+    "people.lede": "Our faculty are practising clinicians — doctors, nurses and educators in sexual health, HIV, infectious diseases and dermatology — who teach in their own time.",
+    "people.placeholder.t": "Faculty profiles coming soon",
+    "people.placeholder.d": "We are adding our volunteer faculty here. In the meantime, email us to find out who is behind the work.",
+    "people.join.t": "Could you teach with us?",
+    "people.join.d": "We welcome clinicians with experience in sexual health, HIV or hepatitis.",
+    "people.join.cta": "Volunteer as faculty",
 
-    "contact.title": "Get involved",
-    "contact.lede": "We welcome collaboration with healthcare organisations, universities, professional societies and NGOs that share our commitment to improving sexual health and HIV care through education, partnership and sustainable capacity building.",
-    "contact.direct": "Direct Email",
-    "form.name": "Full Name",
-    "form.email": "Email Address",
-    "form.message": "Message / Enquiry",
-    "form.send": "Inquire Now",
+    /* Get involved */
+    "involved.kicker": "Get involved",
+    "involved.title": "Three ways to help",
+    "involved.lede": "We are small, independent and run by volunteers. Partners, faculty and supporters make the work possible.",
+    "involved.p1.t": "Partner with us",
+    "involved.p1.d": "Hospitals, universities, professional societies and NGOs: tell us what your clinicians need and we will design a programme with you.",
+    "involved.p1.cta": "Start a conversation",
+    "involved.p1.label": "Start a conversation about partnering",
+    "involved.p2.t": "Volunteer as faculty",
+    "involved.p2.d": "UK clinicians in sexual health, HIV, hepatitis or related fields: teach with us in person or help write materials.",
+    "involved.p2.cta": "Offer your time",
+    "involved.p2.label": "Offer your time as volunteer faculty",
+    "involved.p3.t": "Support our work",
+    "involved.p3.d": "We have no paid staff. Help with travel, teaching materials or expertise goes a long way. There is no online donation yet — get in touch and we will explain how to help.",
+    "involved.p3.cta": "Ask how to support",
+    "involved.p3.label": "Ask how to support our work",
 
-    "footer.tagline": "Empowering Sexual Health Education Worldwide through global partnerships and evidence-based training programs.",
-    "footer.visits": "visits so far",
+    /* Contact + form */
+    "contact.kicker": "Contact",
+    "contact.title": "Get in touch",
+    "contact.lede": "Every message is read by a member of the volunteer faculty. We usually reply within a few days.",
+    "contact.direct": "Or email us directly",
+    "contact.formTitle": "Contact form",
+    "form.name": "Name",
+    "form.name.ph": "Your full name",
+    "form.email": "Email",
+    "form.email.ph": "you@example.org",
+    "form.email.help": "We only use this to reply.",
+    "form.org": "Organisation",
+    "form.org.ph": "Hospital, university, NGO…",
+    "form.optional": "optional",
+    "form.interest": "I'm interested in",
+    "form.interest.ph": "Choose one",
+    "form.interest.partner": "Partnering with IFSHHE",
+    "form.interest.volunteer": "Volunteering as faculty",
+    "form.interest.support": "Supporting our work",
+    "form.interest.other": "Something else",
+    "form.message": "Message",
+    "form.message.ph": "Tell us a little about you and what you have in mind.",
+    "form.honeypot": "Leave this field empty",
+    "form.send": "Send message",
+    "form.sending": "Sending…",
+    "form.err.name": "Please tell us your name.",
+    "form.err.email": "Please enter your email address.",
+    "form.err.emailFormat": "That email address doesn't look right. Check for typos.",
+    "form.err.interest": "Please choose what you are interested in.",
+    "form.err.message": "Please write a short message.",
+    "form.err.messageShort": "Please add a little more detail so we can help.",
+    "form.err.summaryOne": "Please check 1 field below.",
+    "form.err.summaryMany": "Please check {n} fields below.",
+    "form.ok.t": "Thank you, {name}.",
+    "form.ok.d": "Your message is on its way to the volunteer faculty. We will reply to {email} as soon as we can.",
+    "form.ok.again": "Send another message",
+    "form.fail.t": "We couldn't send that.",
+    "form.fail.d": "Please try again, or email us at infoifshhe@gmail.com.",
+    "form.fail.retry": "Try again",
+    "form.privacy": "We keep your details only to reply to you. We never share them.",
+
+    /* Footer */
+    "footer.tagline": "Sexual health, HIV and hepatitis education — designed with local clinicians, not for them.",
+    "footer.navLabel": "Footer navigation",
+    "footer.explore": "Explore",
+    "footer.contact": "Contact",
+    "footer.insta": "Instagram",
+    "footer.instaSoon": "Instagram — coming soon",
+    "footer.based": "Based in the United Kingdom",
+    "footer.visits": "Visits since launch",
+    "footer.visitsLabel": "Visitor counter",
     "footer.copyright": "International Foundation for Sexual Health and HIV Education. All rights reserved.",
+
+    /* thank-you.html */
+    "ty.metaTitle": "Thank you · IFSHHE",
+    "ty.title": "Thank you",
+    "ty.body": "We have your message. A member of the volunteer faculty will reply as soon as they can.",
+    "ty.cta": "Back to the website",
+    "ty.email": "Email us at",
+
+    /* 404.html */
+    "nf.metaTitle": "Page not found · IFSHHE",
+    "nf.title": "We can't find that page",
+    "nf.body": "The link may be old or mistyped. Everything we do is on one page, so you are never far away.",
+    "nf.cta1": "Go to the homepage",
+    "nf.cta2": "See where we work",
+
+    /* Accessibility helpers */
+    "a11y.newTab": "(opens in a new tab)",
   },
 
   ar: {
@@ -323,13 +493,23 @@ window.IFSHHE_I18N = {
   },
 };
 
+/* Languages written right-to-left. */
 window.IFSHHE_RTL = ["ar"];
 
+/* Names shown in the language menu (each in its own language). */
 window.IFSHHE_LANG_NAMES = { en: "English", ar: "العربية", sw: "Kiswahili", ha: "Hausa" };
 
-/* Look up a key in the current language, falling back to English. */
-window.t = function (key, lang) {
+/*
+ * t(key, vars) — look up a text key in the page's language, falling back to
+ * English and then to the key itself. `vars` fills {placeholders}:
+ *   t("form.ok.t", { name: "Amina" })  ->  "Thank you, Amina."
+ */
+window.t = function (key, vars) {
   const dict = window.IFSHHE_I18N;
-  const current = lang || document.documentElement.lang || "en";
-  return (dict[current] && dict[current][key]) ?? dict.en[key] ?? key;
+  const lang = (document.documentElement.lang || "en").slice(0, 2);
+  let text = (dict[lang] && dict[lang][key]) ?? dict.en[key] ?? key;
+  if (vars && typeof text === "string") {
+    text = text.replace(/\{(\w+)\}/g, (match, name) => (name in vars ? String(vars[name]) : match));
+  }
+  return text;
 };
