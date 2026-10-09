@@ -16,7 +16,9 @@ import { getStore } from "@netlify/blobs";
 import { createHash } from "node:crypto";
 
 const BOT_RE = /bot|crawl|spider|slurp|preview|lighthouse|headless|curl|wget|python|java\/|go-http|fetch|monitor|uptime|facebookexternalhit|whatsapp|telegram|discord|embedly|pinterest|skype/i;
-const SITE = (process.env.URL || "").replace(/\/$/, "");   // https://ifshhe.com in production
+// Origins allowed to POST: the production URL plus this deploy's own URL (deploy previews / branch deploys).
+const ORIGINS = [process.env.URL, process.env.DEPLOY_PRIME_URL, process.env.DEPLOY_URL]
+  .filter(Boolean).map((u) => u.replace(/\/$/, ""));
 const DEV = process.env.CONTEXT === "dev";                   // `netlify dev`
 const DAY = 86_400_000;
 
@@ -36,7 +38,7 @@ const dayKey = (offset = 0) => new Date(Date.now() - offset * DAY).toISOString()
 export default async (req, context) => {
   if (req.method !== "GET" && req.method !== "POST") return json({ error: "method" }, 405);
   // Same-origin only: browsers always send Origin on a cross-document POST.
-  if (req.method === "POST" && SITE && !DEV && req.headers.get("origin") !== SITE) return json({ error: "origin" }, 403);
+  if (req.method === "POST" && ORIGINS.length && !DEV && !ORIGINS.includes(req.headers.get("origin"))) return json({ error: "origin" }, 403);
 
   try {
     const s = store();
