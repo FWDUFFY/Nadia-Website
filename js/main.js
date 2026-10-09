@@ -25,7 +25,9 @@ document.documentElement.classList.add("js");
     const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
     onScroll();
     addEventListener("scroll", onScroll, { passive: true });
-    const setHeight = () => document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+    // Measured height goes into its OWN variable. (Writing it into --header-h, which
+    // .header-inner also uses as min-height, created a 1px-per-frame growth loop.)
+    const setHeight = () => document.documentElement.style.setProperty("--header-actual", header.offsetHeight + "px");
     if ("ResizeObserver" in window) new ResizeObserver(setHeight).observe(header); else setHeight();
   }
 
