@@ -32,12 +32,12 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
-  scroll-padding-inline: var(--space-4, 1rem);
-  padding: 4px var(--space-4, 1rem);
-  margin-inline: calc(-1 * var(--space-4, 1rem));
+  scroll-padding-inline: var(--gutter, 1rem);
+  padding: 4px var(--gutter, 1rem);
+  margin-inline: calc(-1 * var(--gutter, 1rem)); /* bleed to the viewport edge on phones */
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent, #fff 20px, #fff calc(100% - 20px), transparent);
-  mask-image: linear-gradient(to right, transparent, #fff 20px, #fff calc(100% - 20px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #fff 16px, #fff calc(100% - 16px), transparent);
+  mask-image: linear-gradient(to right, transparent, #fff 16px, #fff calc(100% - 16px), transparent);
 }
 .country-chips::-webkit-scrollbar { display: none; }
 @media (min-width: 900px) {

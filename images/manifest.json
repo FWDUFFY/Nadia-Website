@@ -42,5 +42,184 @@
     "color": "#887f71",
     "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAsAA4BaJQBOgBe3FHS8egAA/P8EYkbxZUnCn+af2anymwTuKfKjB7x/J6vZJO2yvdOm81Pfl17WNWhBp3SPWAA=",
     "mtime": 1791542001475.69
+  },
+  "case-discussion": {
+    "source": "case-discussion.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#8d7f71",
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAAwAA4BaJYgCdADvsy0h4tGPQAD+kV1GgTST8MUYclLcruB3KEEIBhN94smNtmv52/VkMuOMMfjMTK6aFNntVI80AA==",
+    "mtime": 1791543549754.8274
+  },
+  "course-room": {
+    "source": "course-room.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#787871",
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAwAA4BaJZQAAY0pk1ikAJ9Z4fT8xY8hJX5O3dTVLWSApBLpVojYe1IDwAAA",
+    "mtime": 1791543550548.3948
+  },
+  "faculty-airport": {
+    "source": "faculty-airport.jpg",
+    "width": 2048,
+    "height": 1536,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#72776d",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAwAA4BaJZQCdABla6cgAPvroZHvHdE5S/XDvkXH9hugGH5RVbNbSoWSnyKlaiST0nbkAAA=",
+    "mtime": 1791543550838.2178
+  },
+  "faculty-selfie": {
+    "source": "faculty-selfie.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#696253",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAwAA4BaJQBOgBSO7XJdAAD+7qvnMsspZ5tIoRf0N2dC8H5cZ0LJsFyyUbuCLgkXhMkydyfzArF5+bhwAA==",
+    "mtime": 1791543549357.3652
+  },
+  "lecture-hall": {
+    "source": "lecture-hall.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#544b40",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAwAA4BaJQBOgBwj6FEsAAD+3NAckiQ7G16RM2rjBhZ2NsFpz1bs1dG+kvBbeJOrE8vM40nt1HO1DgAAAA==",
+    "mtime": 1791543550739.9807
+  },
+  "local-faculty-teaching": {
+    "source": "local-faculty-teaching.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#7f8683",
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAwAA4BaJQBdgCHucbau7wAA/IyW/pzvDdhkYZh7LjL/4Ew44OECy3c4TrdOel+iIAVN6EFs4AAA",
+    "mtime": 1791543549486.157
+  },
+  "prep-evening": {
+    "source": "prep-evening.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#746455",
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAgCdASoQAAwAA4BaJZgCdB3gBF/f9MafGIAA/ubRKcTUs3AzCwKXnp2+EMnLaVrz3/96w3b4ytyR9ITu/MO0AAA=",
+    "mtime": 1791543550372.5935
+  },
+  "sexual-history-lecture": {
+    "source": "sexual-history-lecture.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#7f847e",
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAwAA4BaJZQAAfcaA2VnAADKtMhH18VtVvyOjfUgQ05zq+JSmkGP/EglndvSVt8O5veDeIAAAA==",
+    "mtime": 1791543549611.942
+  },
+  "small-group": {
+    "source": "small-group.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#99928d",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAwAA4BaJYwCdAEPBUuP5EAA/sYDfnvWy9qWf3Hd4YO9POwXVkKe8nGS5C0U1FYyb+igP4FVUHxbqVYZ3482oAA=",
+    "mtime": 1791543549220.3977
+  },
+  "table-workshop": {
+    "source": "table-workshop.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#a19585",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAwAA4BaJbACdADcOO7ZXEQAAP63qTqHCL08yxop0e7BtnHl44LND5Fj9Mo7xWtQdRuAJ4tfa2YT0OVYkzIiuwMnouAA",
+    "mtime": 1791543550081.7769
+  },
+  "thank-you-note": {
+    "source": "thank-you-note.jpg",
+    "width": 3024,
+    "height": 4032,
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "color": "#8e8273",
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQBACdASoQABUAPu1iqk4ppaQiMAgBMB2JYwCdMoACTvFtNITj92iPel8AAP5w3K7StDYdQ82onKjs5RDjGcDLpt2oUHDL4LIJnfNqlddZAZAA",
+    "mtime": 1791543575805.9478
+  },
+  "workshop-standing": {
+    "source": "workshop-standing.jpg",
+    "width": 4032,
+    "height": 3024,
+    "ratio": 0.75,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#87827a",
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAwAA4BaJYwCsACkEpXZYAD93spP5pFOYdCeO2mUwgozI6JLCuRWWwDvjw7gZkKo5zySBV4nzpgAAAA=",
+    "mtime": 1791543550225.1978
   }
 }

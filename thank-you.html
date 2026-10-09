@@ -1,21 +1,143 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thank you · IFSHHE</title>
-  <link rel="icon" href="images/logo.jpg" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="ty.metaTitle">Thank you · IFSHHE</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Your message to IFSHHE has been received.">
+  <meta name="theme-color" content="#FBF6EE">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/fraunces-500-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/nunito-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <script src="/js/content.js" defer></script>
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/main.js" defer></script>
 </head>
-<body>
-  <main class="section">
-    <div class="wrap" style="max-width: 40rem; text-align: center;">
-      <img src="images/logo.jpg" alt="IFSHHE" width="96" height="96" style="margin: 0 auto 1.5rem; border-radius: 50%;" />
-      <h1>Thank you</h1>
-      <p class="lede" style="margin-inline: auto;">We've received your message and will get back to you shortly. Every enquiry is read by a member of the volunteer faculty.</p>
-      <p><a class="btn btn-primary" href="/">Back to home</a></p>
+<body class="page-simple">
+  <svg hidden aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
+        <img class="brand-logo" src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="124px" width="726" height="375" alt="" decoding="async">
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
+        <div class="drawer-head">
+          <span class="drawer-title" data-i18n="nav.menu">Menu</span>
+          <button class="drawer-close" type="button" id="drawer-close" aria-label="Close menu" data-i18n-attr="aria-label:nav.close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+        </div>
+        <ul class="nav-list" role="list">
+          <li><a href="/#about" data-i18n="nav.about">About</a></li>
+          <li><a href="/#work" data-i18n="nav.work">What we do</a></li>
+          <li><a href="/#where" data-i18n="nav.where">Where we work</a></li>
+          <li><a href="/#people" data-i18n="nav.people">Our people</a></li>
+          <li><a href="/#get-involved" data-i18n="nav.involved">Get involved</a></li>
+        </ul>
+        <a class="btn btn-ghost btn-sm nav-cta" href="/#contact" data-i18n="nav.contact">Contact us</a>
+        <div class="drawer-langs">
+          <p class="drawer-langs-label" data-i18n="lang.label">Language</p>
+          <ul role="list">
+            <li><a href="/" data-lang="en" lang="en" hreflang="en" aria-current="true">English</a></li>
+            <li><a href="/ar/" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+            <li><a href="/sw/" data-lang="sw" lang="sw" hreflang="sw">Kiswahili</a></li>
+            <li><a href="/ha/" data-lang="ha" lang="ha" hreflang="ha">Hausa</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-tools">
+        <div class="lang">
+          <button class="lang-button" id="lang-button" type="button" aria-expanded="false" aria-controls="lang-menu">
+            <svg class="icon lang-globe" aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="visually-hidden" data-i18n="lang.label">Language</span>
+            <span class="visually-hidden">: </span>
+            <span class="lang-current" id="lang-current">English</span>
+            <span class="lang-code" id="lang-code" aria-hidden="true"></span>
+            <svg class="icon lang-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="lang-menu" id="lang-menu" hidden>
+            <ul role="list" aria-label="Choose language" data-i18n-attr="aria-label:lang.menu">
+              <li><a href="/" data-lang="en" lang="en" hreflang="en" aria-current="true"><span>English</span><svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+              <li><a href="/ar/" data-lang="ar" lang="ar" hreflang="ar"><span>العربية <small lang="en">Arabic</small></span><svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+              <li><a href="/sw/" data-lang="sw" lang="sw" hreflang="sw"><span>Kiswahili <small lang="en">Swahili</small></span><svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+              <li><a href="/ha/" data-lang="ha" lang="ha" hreflang="ha"><span>Hausa</span><svg class="icon lang-check" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+        <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+          <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+          <span class="bars" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
+  </header>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <main id="main" tabindex="-1">
+    <section class="section simple" aria-labelledby="ty-title">
+      <svg class="ring simple-ring" aria-hidden="true" viewBox="0 0 200 140"><ellipse cx="100" cy="70" rx="96" ry="62" fill="none" stroke="currentColor" stroke-width="6"/></svg>
+      <span class="dot simple-dot" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="simple-card">
+          <span class="icon-tile icon-tile--ok" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>
+          <h1 id="ty-title" data-i18n="ty.title">Thank you</h1>
+          <p class="lede" data-i18n="ty.body">We have your message. A member of the volunteer faculty will reply as soon as they can.</p>
+          <div class="simple-actions">
+            <a class="btn btn-primary" href="/" data-i18n="ty.cta">Back to the website</a>
+          </div>
+          <p class="meta"><span data-i18n="ty.email">Email us at</span> <a href="mailto:infoifshhe@gmail.com">infoifshhe@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer" id="footer">
+    <svg class="footer-arc" aria-hidden="true" viewBox="0 0 1440 48" preserveAspectRatio="none"><path d="M0 0h1440v6C1120 50 320 50 0 6z" fill="currentColor"/></svg>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/" aria-label="IFSHHE — home" data-i18n-attr="aria-label:brand.home">
+          <img src="/images/logo.png" srcset="/images/logo-400.png 400w, /images/logo.png 726w" sizes="116px" width="726" height="375" alt="" decoding="async" loading="lazy">
+        </a>
+        <p class="footer-sub" data-i18n="brand.sub">Sexual health · HIV · Hepatitis education</p>
+        <p class="footer-tagline" data-i18n="footer.tagline">Sexual health, HIV and hepatitis education — designed with local clinicians, not for them.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer navigation" data-i18n-attr="aria-label:footer.navLabel">
+        <h2 class="footer-heading" data-i18n="footer.explore">Explore</h2>
+        <ul role="list">
+          <li><a href="/#about" data-i18n="nav.about">About</a></li>
+          <li><a href="/#work" data-i18n="nav.work">What we do</a></li>
+          <li><a href="/#where" data-i18n="nav.where">Where we work</a></li>
+          <li><a href="/#people" data-i18n="nav.people">Our people</a></li>
+          <li><a href="/#get-involved" data-i18n="nav.involved">Get involved</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-heading" data-i18n="footer.contact">Contact</h2>
+        <ul role="list">
+          <li><a href="mailto:infoifshhe@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>infoifshhe@gmail.com</span></a></li>
+          <li id="insta-item"><span class="footer-soon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span data-i18n="footer.instaSoon">Instagram — coming soon</span></span></li>
+          <li><span class="footer-plain"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span data-i18n="footer.based">Based in the United Kingdom</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p class="copyright">© <span id="year">2026</span> <span data-i18n="footer.copyright">International Foundation for Sexual Health and HIV Education. All rights reserved.</span></p>
+    </div>
+  </footer>
 </body>
 </html>

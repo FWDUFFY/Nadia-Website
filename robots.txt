@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /thank-you.html
+Disallow: /*/thank-you.html
+
+Sitemap: https://ifshhe.com/sitemap.xml

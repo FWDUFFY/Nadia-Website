@@ -2,11 +2,27 @@
   "name": "ifshhe-website",
   "private": true,
   "type": "module",
+  "description": "ifshhe.com - International Foundation for Sexual Health and HIV Education",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "images": "node scripts/build-images.mjs && node scripts/build-icons.mjs",
+    "fonts": "node scripts/fetch-fonts.mjs",
+    "map": "node scripts/build-map.mjs",
+    "serve": "npm run build && python3 -m http.server 8000 -d dist",
+    "lint": "html-validate \"dist/**/*.html\"",
+    "lhci": "npm run build && lhci autorun"
+  },
   "dependencies": {
-    "@netlify/blobs": "^8.1.0"
+    "@netlify/blobs": "^11.1.4"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "cheerio": "^1.2.0",
     "d3-geo": "^3.1.1",
+    "html-validate": "^11.16.2",
     "sharp": "^0.35.5",
     "topojson-client": "^3.1.0",
     "world-atlas": "^2.0.2"
