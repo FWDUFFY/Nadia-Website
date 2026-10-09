@@ -9,6 +9,7 @@ import { rmSync, mkdirSync, cpSync, existsSync, readFileSync, writeFileSync, rea
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { transformSync } from "esbuild";
 
 process.chdir(fileURLToPath(new URL("..", import.meta.url)));
 const DIST = "dist";
@@ -28,20 +29,64 @@ for (const f of STATIC) {
   if (!existsSync(f)) { console.warn(`skip (missing): ${f}`); continue; }
   cpSync(f, join(DIST, f), { recursive: true, filter: SKIP });
 }
-// CSS: one combined stylesheet; map.css and anything else copied as is.
+// CSS: ONE stylesheet for the whole site (fonts + placeholders + styles + map),
+// minified. The source pages link /css/styles.css and /css/map.css separately so
+// the un-built root still works; the map.css <link> is removed from the built
+// pages below. Anything else in css/ is copied (minified) as is.
 mkdirSync(join(DIST, "css"), { recursive: true });
-const PREPEND = ["css/fonts.css", "css/placeholders.css"];
-const combined = [...PREPEND, "css/styles.css"].filter((f) => existsSync(f) || (console.warn(`skip (missing): ${f}`), false))
+const CSS_ORDER = ["css/fonts.css", "css/placeholders.css", "css/styles.css", "css/map.css"];
+const combined = CSS_ORDER.filter((f) => existsSync(f) || (console.warn(`skip (missing): ${f}`), false))
   .map((f) => `/* ---- ${f} ---- */\n${readFileSync(f, "utf8").trim()}\n`).join("\n");
-writeFileSync(join(DIST, "css/styles.css"), combined);
+writeFileSync(join(DIST, "css/styles.css"), minify(combined, "css"));
 for (const f of readdirSync("css")) {
-  if (!f.endsWith(".css") || f === "styles.css" || PREPEND.includes(`css/${f}`)) continue;
-  cpSync(join("css", f), join(DIST, "css", f));
+  if (!f.endsWith(".css") || CSS_ORDER.includes(`css/${f}`)) continue;
+  writeFileSync(join(DIST, "css", f), minify(readFileSync(join("css", f), "utf8"), "css"));
 }
+// JS: minified copies (comments are for editors of the source, not visitors).
+for (const f of readdirSync(join(DIST, "js"))) {
+  if (!f.endsWith(".js")) continue;
+  const p = join(DIST, "js", f);
+  writeFileSync(p, minify(readFileSync(p, "utf8"), "js"));
+}
+
+// Translations: one small file per language (English + that language) instead of
+// shipping all four dictionaries to every visitor. The helper (window.t) is copied
+// verbatim from the end of js/i18n.js.
+const i18nSource = readFileSync("js/i18n.js", "utf8");
+const i18nWindow = {};
+new Function("window", "document", i18nSource)(i18nWindow, { documentElement: { lang: "en" } });
+const helperStart = i18nSource.indexOf("window.t = function");
+if (helperStart < 0) throw new Error("js/i18n.js: window.t helper not found");
+const helper = i18nSource.slice(helperStart);
+const langs = Object.keys(i18nWindow.IFSHHE_I18N);
+for (const lang of langs) {
+  const dict = lang === "en" ? { en: i18nWindow.IFSHHE_I18N.en } : { en: i18nWindow.IFSHHE_I18N.en, [lang]: i18nWindow.IFSHHE_I18N[lang] };
+  const code = `window.IFSHHE_I18N=${JSON.stringify(dict)};window.IFSHHE_RTL=${JSON.stringify(i18nWindow.IFSHHE_RTL)};window.IFSHHE_LANG_NAMES=${JSON.stringify(i18nWindow.IFSHHE_LANG_NAMES)};\n${helper}`;
+  writeFileSync(join(DIST, "js", `i18n.${lang}.js`), minify(code, "js"));
+}
+rmSync(join(DIST, "js", "i18n.js"), { force: true });
 
 // 2-3. Pages, then cache-busting.
 run("build-pages.mjs", DIST);
+// Per-page fix-ups: drop the separate map.css <link> (its rules are inside
+// styles.css now) and point each page at its own language's translation file.
+for (const page of readdirSync(DIST, { recursive: true }).filter((f) => f.endsWith(".html"))) {
+  const p = join(DIST, page);
+  let html = readFileSync(p, "utf8").replace(/\n?[ \t]*<link[^>]+href="\/css\/map\.css"[^>]*>/g, "");
+  const lang = (html.match(/<html[^>]*\blang="([a-z]{2})/i) || [, "en"])[1];
+  html = html.replace(/src="\/js\/i18n\.js(\?[^"]*)?"/g, `src="/js/i18n.${langs.includes(lang) ? lang : "en"}.js"`);
+  writeFileSync(p, html);
+}
 run("stamp.mjs", DIST);
+
+function minify(source, loader) {
+  try {
+    return transformSync(source, { loader, minify: true, legalComments: "none", target: "es2020" }).code;
+  } catch (err) {
+    console.warn(`minify (${loader}) failed, shipping unminified: ${err.message}`);
+    return source;
+  }
+}
 
 // Summary
 let total = 0, files = 0;

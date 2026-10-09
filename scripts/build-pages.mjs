@@ -103,7 +103,12 @@ function render(source, page, lang) {
     $("head").append('\n  <meta name="robots" content="noindex">');  // thank-you pages are never indexed
   }
   // Arabic: preload the Arabic text face instead of the Latin display face.
-  if (lang === "ar") $(`link[rel="preload"][href="${LATIN_DISPLAY_FONT}"]`).attr("href", ARABIC_FONT);
+  if (lang === "ar") {
+    const el = $(`link[rel="preload"][href="${LATIN_DISPLAY_FONT}"]`);
+    el.attr("href", ARABIC_FONT);
+    // The page also uses the face's Latin subset (IFSHHE, partner names); preloading it avoids a late swap (CLS).
+    el.after(`\n  <link rel="preload" href="${ARABIC_FONT.replace("-arabic.woff2", "-latin.woff2")}" as="font" type="font/woff2" crossorigin>`);
+  }
 
   // Forms: tag the language and land on the matching thank-you page.
   $('input[name="lang"]').attr("value", lang);

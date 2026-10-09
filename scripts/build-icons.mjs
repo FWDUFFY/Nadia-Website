@@ -35,7 +35,13 @@ const logo = sharp(LOGO).trim({ threshold: 8 });
 const logoMeta = await logo.clone().png().toBuffer({ resolveWithObject: true });
 await logo.clone().png({ compressionLevel: 9, palette: true, quality: 90 }).toFile("images/logo.png");
 await logo.clone().resize({ width: 400 }).png({ compressionLevel: 9, palette: true, quality: 90 }).toFile("images/logo-400.png");
-console.log(`images/logo.png ${logoMeta.info.width}x${logoMeta.info.height}, images/logo-400.png`);
+// Small header/footer variants: the logo displays at ~130px wide, so 160 (1x) and 320 (2x) are plenty.
+// WebP keeps the alpha channel at roughly a third of the PNG size; PNG stays as the fallback.
+for (const w of [160, 320]) {
+  await logo.clone().resize({ width: w }).webp({ quality: 88, alphaQuality: 95 }).toFile(`images/logo-${w}.webp`);
+  await logo.clone().resize({ width: w }).png({ compressionLevel: 9, palette: true, quality: 90 }).toFile(`images/logo-${w}.png`);
+}
+console.log(`images/logo.png ${logoMeta.info.width}x${logoMeta.info.height}, images/logo-400.png, logo-160/320 .png/.webp`);
 
 // ---------------------------------------------------------------------------
 // 2. The mark: cut the globe + S + arrow out of the (untrimmed) logo.
