@@ -15,6 +15,7 @@ document.documentElement.classList.add("js");
   const t = (key, vars) => (typeof window.t === "function" ? window.t(key, vars) : key);
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const mobileMQ = matchMedia("(max-width: 959.98px)");
+  const drawerMQ = matchMedia("(max-width: 1119.98px)");   // header/drawer breakpoint (see styles.css)
   const lang = (document.documentElement.lang || "en").slice(0, 2);
   const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
@@ -80,6 +81,9 @@ document.documentElement.classList.add("js");
       langButton.setAttribute("aria-expanded", String(open));
       if (open && focusItem !== false) (items.find((a) => a.getAttribute("aria-current") === "true") || items[0]).focus();
     };
+    // Keep focus inside .lang on pointer press (Safari/Firefox do not focus buttons on click),
+    // otherwise focusout closes the menu and the click immediately re-opens it.
+    langButton.addEventListener("pointerdown", (e) => e.preventDefault());
     langButton.addEventListener("click", () => setOpen(langMenu.hidden));
     langButton.addEventListener("keydown", (e) => {
       if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); setOpen(true); if (e.key === "ArrowUp") items[items.length - 1].focus(); }
@@ -127,6 +131,11 @@ document.documentElement.classList.add("js");
   if (nav && toggle) {
     // The toggle and close controls are links (#site-nav / #top) so the drawer also
     // works without JavaScript via :target; with JavaScript we take over the click.
+    [toggle, drawerClose].forEach((el) => {
+      if (!el) return;
+      el.setAttribute("role", "button");
+      el.addEventListener("keydown", (e) => { if (e.key === " ") { e.preventDefault(); el.click(); } });
+    });
     toggle.addEventListener("click", (e) => { e.preventDefault(); setDrawer(!drawerOpen); });
     drawerClose && drawerClose.addEventListener("click", (e) => { e.preventDefault(); setDrawer(false); });
     backdrop && backdrop.addEventListener("click", () => setDrawer(false));
@@ -142,7 +151,7 @@ document.documentElement.classList.add("js");
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
-    mobileMQ.addEventListener("change", (e) => { if (!e.matches) setDrawer(false); });
+    drawerMQ.addEventListener("change", (e) => { if (!e.matches) setDrawer(false); });
   }
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && drawerOpen) setDrawer(false); });
 
@@ -171,9 +180,12 @@ document.documentElement.classList.add("js");
   if (lightbox && typeof lightbox.showModal === "function") {
     const img = $("#lightbox-img"), cap = $("#lightbox-cap");
     let opener = null;
-    $$("[data-lightbox]").forEach((btn) => btn.addEventListener("click", () => {
+    // Gallery items are links to the full-size image (works without JavaScript);
+    // with JavaScript they open the lightbox instead.
+    $$("[data-lightbox]").forEach((btn) => btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const src = btn.querySelector("img");
-      img.src = btn.dataset.full || src.currentSrc || src.src;
+      img.src = btn.getAttribute("href") || btn.dataset.full || src.currentSrc || src.src;
       img.alt = src.alt;
       const figcap = btn.parentElement.querySelector("figcaption");
       cap.textContent = figcap ? figcap.textContent : "";

@@ -345,3 +345,6 @@
   .chip[aria-current="true"] { background: Highlight; color: HighlightText; }
   .country-list li::before { background: CanvasText; }
 }
+
+/* Without JavaScript there is no map: the chips and panels carry the content. */
+html:not(.js) .map-frame { display: none; }

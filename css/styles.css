@@ -290,7 +290,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .site-header.is-scrolled { box-shadow: var(--shadow-sm); --header-h: 64px; }
 .header-inner { display: flex; align-items: center; gap: var(--space-5); min-height: var(--header-h); transition: min-height var(--dur-base) var(--ease-out); }
 
-.brand { display: inline-flex; align-items: center; margin-inline-end: auto; border-radius: var(--radius-sm); }
+.brand { flex: none; display: inline-flex; align-items: center; margin-inline-end: auto; border-radius: var(--radius-sm); }
+/* Without JavaScript the language popover opens on hover/focus instead of a click. */
+html:not(.js) .lang:is(:hover, :focus-within) .lang-menu[hidden] { display: block; }
 .brand-logo { width: auto; height: 58px; transition: height var(--dur-base) var(--ease-out); }
 .is-scrolled .brand-logo { height: 48px; }
 
@@ -367,7 +369,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .drawer-backdrop.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
 
-@media (max-width: 959.98px) {
+/* Header + drawer breakpoint is higher than the layout one (960px): translated nav labels
+   (Swahili, Hausa) do not fit a desktop nav between 960 and 1120px. */
+@media (max-width: 1119.98px) {
   :root { --header-h: 64px; }
   .site-header.is-scrolled { --header-h: 64px; }
   .brand-logo, .is-scrolled .brand-logo { height: 46px; }

@@ -92,7 +92,7 @@
 
   function select(code, opts) {
     opts = opts || {};
-    if (!byCode[code]) return false;
+    if (!byCode[code] || !panelFor(code)) return false;   // needs a chip + panel in index.html
     var changed = code !== selected;
     selected = code;
 
@@ -200,7 +200,7 @@
       var i = 0;
       countries.forEach(function (c) {
         var xy = json.pins && json.pins[c.code];
-        if (!xy) return;
+        if (!xy || !panelFor(c.code)) return;   // no panel in the HTML yet: no pin
         var btn = doc.createElement("button");
         btn.type = "button";
         btn.className = "map-pin" + (c.home ? " map-pin--home" : "");

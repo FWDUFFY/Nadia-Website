@@ -16,8 +16,10 @@
  *   year  optional, e.g. "2023" — shown in the panel when filled in
  *   home  true marks the United Kingdom as the home of the volunteer faculty
  *
- * To add a country: copy a line, change the values, then add its
- * country.xx.* texts in i18n.js. The map re-fits itself at the next build.
+ * To add a country: copy a line, change the values, add its country.xx.*
+ * texts in i18n.js, AND add a chip + a panel for it in index.html (copy an
+ * existing one). The map only shows pins for countries that have a panel;
+ * it re-fits itself at the next build.
  */
 window.IFSHHE_COUNTRIES = [
   { id: "729", code: "sd", year: "", lat: 15.5, lon: 30.5 },               // Sudan
