@@ -119,12 +119,13 @@ const tx = logoLeft + LOGO_W + 56;                                  // text colu
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const text = Buffer.from(`<svg width="${OG_W}" height="${OG_H}" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .h{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:56px;fill:${NAVY}}
+    .h{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:48px;fill:${NAVY}}
     .s{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:28px;fill:${TEXT}}
   </style>
-  <text x="${tx}" y="218" class="h">Sexual health</text>
-  <text x="${tx}" y="284" class="h">education</text>
-  <text x="${tx}" y="350" class="h">that lasts.</text>
+  <text x="${tx}" y="172" class="h">Building sustainable</text>
+  <text x="${tx}" y="230" class="h">sexual health and</text>
+  <text x="${tx}" y="288" class="h">HIV education</text>
+  <text x="${tx}" y="346" class="h">worldwide</text>
   <rect x="${tx + 2}" y="378" width="72" height="6" rx="3" fill="${TERRACOTTA}"/>
   <text x="${tx}" y="432" class="s">${esc("International Foundation for")}</text>
   <text x="${tx}" y="470" class="s">${esc("Sexual Health and HIV Education")}</text>

@@ -6,3 +6,6 @@ dist/
 .env
 .lighthouseci/
 media-raw/
+
+# Client source documents (large; not part of the site)
+*.docx

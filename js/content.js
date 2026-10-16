@@ -22,7 +22,7 @@
  * it re-fits itself at the next build.
  */
 window.IFSHHE_COUNTRIES = [
-  { id: "729", code: "sd", year: "", lat: 15.5, lon: 30.5 },               // Sudan
+  { id: "729", code: "sd", year: "2023", lat: 15.5, lon: 30.5 },           // Sudan (Khartoum, Feb–Mar 2023)
   { id: "566", code: "ng", year: "", lat: 9.1, lon: 8.7 },                 // Nigeria
   { id: "834", code: "tz", year: "2026", lat: -6.4, lon: 35.0 },           // Tanzania (RDTC, Moshi, February 2026)
   { id: "826", code: "gb", year: "", lat: 54.0, lon: -2.5, home: true },   // United Kingdom
@@ -72,6 +72,9 @@ window.IFSHHE_MEMBERS = [
  */
 window.IFSHHE_STATS = [
   // { value: 500, suffix: "+", label: "clinicians trained", labelTranslations: { ar: "", sw: "", ha: "" } },
+  // Confirmed by Nadia, October 2026.
+  { value: 94, label: "healthcare professionals trained", labelTranslations: { ar: "من المهنيين الصحيين تلقّوا التدريب", sw: "wataalamu wa afya waliopata mafunzo", ha: "ma'aikatan lafiya da aka horar" } },
+  { value: 3, label: "courses delivered", labelTranslations: { ar: "دورات تدريبية أُنجزت", sw: "kozi zilizotolewa", ha: "kwasa-kwasan da aka gudanar" } },
 ];
 
 /*
@@ -81,5 +84,5 @@ window.IFSHHE_STATS = [
  * While it is empty the footer shows "Instagram — coming soon".
  */
 window.IFSHHE_SOCIAL = {
-  instagram: "",
+  instagram: "https://www.instagram.com/ifshhe.info/",
 };

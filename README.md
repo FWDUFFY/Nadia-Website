@@ -89,9 +89,10 @@ messages a month. Each message says which language the visitor was using.
 
 ### Visitor counter
 
-The number in the footer counts people, once per day each — not page views — and stores no personal
-data (a one-way scrambled code that is deleted within 48 hours). You can read the current number at
-`ifshhe.com/api/visits`.
+The counter is private: nothing is shown on the site. It counts people, once per day each — not page
+views — and stores no personal data (a one-way scrambled code that is deleted within 48 hours). To see
+the current number, open `ifshhe.com/api/visits?key=YOUR-KEY`, where `YOUR-KEY` is the `VISITS_KEY`
+value set in Netlify. Without the key the address returns "forbidden".
 
 ### Instagram
 
@@ -241,7 +242,8 @@ runs; performance ≥ 0.95, accessibility / best practices / SEO = 1, scripts �
 2. **Forms:** after the first deploy Netlify lists the `contact` form. Site configuration →
    Notifications → Form submission notifications → Add notification → Email → `infoifshhe@gmail.com`,
    form `contact`. Spam filtering is on by default.
-3. **Visitor counter:** Site configuration → Environment variables → add `VISITS_SALT` with a long
+3. **Visitor counter:** Site configuration → Environment variables → add `VISITS_KEY` (the password for
+   reading the count) and `VISITS_SALT`, each a long
    random string (for example the output of `openssl rand -hex 24`). Netlify Blobs needs no setup.
    To seed the count from the old site: `npx netlify blobs:set site-stats visits 1234`.
 4. **Domain:** Domain management → Add domain → `ifshhe.com`. Then at Wix (Domains → ifshhe.com →

@@ -42,7 +42,7 @@ window.IFSHHE_I18N = {
 
     /* Hero */
     "hero.kicker": "Independent · Volunteer-led · UK-based",
-    "hero.title": "Sexual health education that lasts.",
+    "hero.title": "Building sustainable sexual health and HIV education worldwide",
     "hero.lede": "We are a volunteer-led foundation of UK clinicians. We work alongside doctors, nurses and educators in Sudan, Nigeria and Tanzania to build sexual health, HIV and hepatitis education that keeps going long after we go home — designed with local clinicians, not for them.",
     "hero.cta1": "Partner with us",
     "hero.cta2": "See where we work",
@@ -101,15 +101,19 @@ window.IFSHHE_I18N = {
     "where.yearLabel": "Year",
     "where.didLabel": "What we did",
     "where.ledLabel": "What it led to",
+    "where.soon": "Full details coming soon.",
     "where.selected": "selected",
     "where.homeLabel": "Home",
 
     "country.sd.name": "Sudan",
-    "country.sd.partner": "SHAWG",
-    "country.sd.summary": "A foundation programme in sexually transmitted infections, built and taught with SHAWG for clinicians across Sudan.",
-    "country.sd.b1": "Foundation STI training programme co-designed with SHAWG",
-    "country.sd.b2": "Case-based teaching on diagnosis and management of common STIs",
-    "country.sd.outcome": "Local clinicians now have a shared foundation course to build on.",
+    "country.sd.partner": "SHAWG · Sudan Ministry of Health",
+    "country.sd.when": "February–March 2023",
+    "country.sd.summary": "Our first course: a three-day foundation course in sexually transmitted infections for clinicians in Khartoum, delivered with the Sudan HIV/AIDS Working Group (SHAWG) and endorsed by the Sudan Ministry of Health.",
+    "country.sd.b1": "Taught 42 clinicians at the Omdurman HIV/AIDS Antiretroviral Therapy Centre",
+    "country.sd.b2": "Adapted the UK STI Foundation course for Sudan, adding HIV, hepatitis, sexual dysfunction and TB, with local speakers",
+    "country.sd.b3": "Lectures, small-group work, role play and practical sessions shaped to the local cultural and religious context",
+    "country.sd.b4": "Supported by the IOM Health Development Programme, the Patients Helping Fund and the WHO",
+    "country.sd.outcome": "Participants rated the teaching 4–5 out of 5 and asked for more, leading to plans for courses in other regions of Sudan and for training local trainers.",
     "country.sd.cta": "Ask about working with us in Sudan",
 
     "country.ng.name": "Nigeria",
@@ -248,8 +252,6 @@ window.IFSHHE_I18N = {
     "footer.insta": "Instagram",
     "footer.instaSoon": "Instagram — coming soon",
     "footer.based": "Based in the United Kingdom",
-    "footer.visits": "Visits since launch",
-    "footer.visitsLabel": "Visitor counter",
     "footer.copyright": "International Foundation for Sexual Health and HIV Education. All rights reserved.",
 
     /* thank-you.html */
@@ -297,7 +299,7 @@ window.IFSHHE_I18N = {
 
     /* Hero */
     "hero.kicker": "مستقلة · بقيادة متطوعين · مقرها المملكة المتحدة",
-    "hero.title": "تعليم في الصحة الجنسية يدوم أثره.",
+    "hero.title": "نبني تعليماً مستداماً في الصحة الجنسية وفيروس نقص المناعة البشرية حول العالم",
     "hero.lede": "نحن مؤسسة يقودها متطوعون من الأطباء العاملين في المملكة المتحدة. نعمل جنباً إلى جنب مع الأطباء والممرضين والمعلمين في السودان ونيجيريا وتنزانيا لبناء تعليم في الصحة الجنسية وفيروس نقص المناعة البشرية والتهاب الكبد يستمر طويلاً بعد عودتنا إلى بلادنا — تعليم مصمَّم مع الأطباء المحليين، لا نيابةً عنهم.",
     "hero.cta1": "كن شريكاً لنا",
     "hero.cta2": "اكتشف أين نعمل",
@@ -356,15 +358,19 @@ window.IFSHHE_I18N = {
     "where.yearLabel": "السنة",
     "where.didLabel": "ما قمنا به",
     "where.ledLabel": "ما أدى إليه",
+    "where.soon": "التفاصيل الكاملة قريباً.",
     "where.selected": "محدد",
     "where.homeLabel": "المقر",
 
     "country.sd.name": "السودان",
-    "country.sd.partner": "SHAWG",
-    "country.sd.summary": "برنامج تأسيسي في الأمراض المنقولة جنسياً، بُني ودُرّس بالتعاون مع SHAWG للأطباء في مختلف أنحاء السودان.",
-    "country.sd.b1": "برنامج تدريبي تأسيسي في الأمراض المنقولة جنسياً صُمّم بالاشتراك مع SHAWG",
-    "country.sd.b2": "تدريس قائم على الحالات في تشخيص الأمراض المنقولة جنسياً الشائعة وعلاجها",
-    "country.sd.outcome": "أصبح لدى الأطباء المحليين الآن دورة تأسيسية مشتركة يبنون عليها.",
+    "country.sd.partner": "SHAWG · وزارة الصحة السودانية",
+    "country.sd.when": "فبراير–مارس 2023",
+    "country.sd.summary": "دورتنا الأولى: دورة تأسيسية مدتها ثلاثة أيام في الأمراض المنقولة جنسياً للأطباء في الخرطوم، نُفّذت بالتعاون مع مجموعة عمل السودان لفيروس نقص المناعة البشرية/الإيدز (SHAWG) وبمصادقة وزارة الصحة السودانية.",
+    "country.sd.b1": "تدريب 42 طبيباً في مركز أم درمان للعلاج بمضادات الفيروسات القهقرية لفيروس نقص المناعة البشرية/الإيدز",
+    "country.sd.b2": "تكييف الدورة التأسيسية البريطانية للأمراض المنقولة جنسياً للسودان، مع إضافة فيروس نقص المناعة البشرية والتهاب الكبد والاضطرابات الجنسية والسل، بمشاركة متحدثين محليين",
+    "country.sd.b3": "محاضرات وعمل في مجموعات صغيرة ولعب أدوار وجلسات عملية تراعي السياق الثقافي والديني المحلي",
+    "country.sd.b4": "بدعم من برنامج التنمية الصحية التابع للمنظمة الدولية للهجرة، وصندوق إعانة المرضى، ومنظمة الصحة العالمية",
+    "country.sd.outcome": "قيّم المشاركون التدريس بدرجة 4–5 من 5 وطلبوا المزيد، ما أدى إلى خطط لدورات في مناطق أخرى من السودان ولتدريب مدربين محليين.",
     "country.sd.cta": "اسأل عن العمل معنا في السودان",
 
     "country.ng.name": "نيجيريا",
@@ -503,8 +509,6 @@ window.IFSHHE_I18N = {
     "footer.insta": "إنستغرام",
     "footer.instaSoon": "إنستغرام — قريباً",
     "footer.based": "مقرنا في المملكة المتحدة",
-    "footer.visits": "الزيارات منذ الإطلاق",
-    "footer.visitsLabel": "عداد الزوار",
     "footer.copyright": "المؤسسة الدولية للتثقيف في الصحة الجنسية وفيروس نقص المناعة البشرية. جميع الحقوق محفوظة.",
 
     /* thank-you.html */
@@ -552,7 +556,7 @@ window.IFSHHE_I18N = {
 
     /* Hero */
     "hero.kicker": "Huru · Inaongozwa na wajitolea · Makao yake Uingereza",
-    "hero.title": "Elimu ya afya ya ngono inayodumu.",
+    "hero.title": "Kujenga elimu endelevu ya afya ya ngono na VVU duniani kote",
     "hero.lede": "Sisi ni taasisi inayoongozwa na wajitolea, matabibu kutoka Uingereza. Tunashirikiana na madaktari, wauguzi na waelimishaji nchini Sudan, Nigeria na Tanzania kujenga elimu ya afya ya ngono, VVU na homa ya ini inayoendelea muda mrefu baada ya sisi kurudi nyumbani — iliyobuniwa pamoja na matabibu wa ndani, si kwa niaba yao.",
     "hero.cta1": "Shirikiana nasi",
     "hero.cta2": "Ona tunapofanya kazi",
@@ -611,15 +615,19 @@ window.IFSHHE_I18N = {
     "where.yearLabel": "Mwaka",
     "where.didLabel": "Tulichofanya",
     "where.ledLabel": "Kilichotokana nacho",
+    "where.soon": "Maelezo kamili yanakuja hivi karibuni.",
     "where.selected": "imechaguliwa",
     "where.homeLabel": "Makao",
 
     "country.sd.name": "Sudan",
-    "country.sd.partner": "SHAWG",
-    "country.sd.summary": "Programu ya msingi kuhusu magonjwa ya zinaa, iliyojengwa na kufundishwa pamoja na SHAWG kwa matabibu kote Sudan.",
-    "country.sd.b1": "Programu ya msingi ya mafunzo ya magonjwa ya zinaa iliyobuniwa pamoja na SHAWG",
-    "country.sd.b2": "Ufundishaji unaotegemea kesi za wagonjwa kuhusu utambuzi na matibabu ya magonjwa ya zinaa ya kawaida",
-    "country.sd.outcome": "Matabibu wa ndani sasa wana kozi ya msingi ya pamoja ya kujengea.",
+    "country.sd.partner": "SHAWG · Wizara ya Afya ya Sudan",
+    "country.sd.when": "Februari–Machi 2023",
+    "country.sd.summary": "Kozi yetu ya kwanza: kozi ya msingi ya siku tatu kuhusu magonjwa ya zinaa kwa matabibu mjini Khartoum, iliyotolewa pamoja na Kikundi Kazi cha VVU/UKIMWI cha Sudan (SHAWG) na kuidhinishwa na Wizara ya Afya ya Sudan.",
+    "country.sd.b1": "Tulifundisha matabibu 42 katika Kituo cha Tiba ya Dawa za Kufubaza VVU cha Omdurman",
+    "country.sd.b2": "Tulirekebisha kozi ya msingi ya magonjwa ya zinaa ya Uingereza kwa Sudan, tukiongeza VVU, homa ya ini, matatizo ya kingono na TB, pamoja na wazungumzaji wa ndani",
+    "country.sd.b3": "Mihadhara, kazi za vikundi vidogo, maigizo dhima na vipindi vya vitendo vilivyozingatia muktadha wa kitamaduni na kidini wa eneo hilo",
+    "country.sd.b4": "Kwa msaada wa Programu ya Maendeleo ya Afya ya IOM, Mfuko wa Kusaidia Wagonjwa na WHO",
+    "country.sd.outcome": "Washiriki waliupa ufundishaji alama 4–5 kati ya 5 na kuomba zaidi, jambo lililosababisha mipango ya kozi katika maeneo mengine ya Sudan na ya kuwafunza wakufunzi wa ndani.",
     "country.sd.cta": "Uliza kuhusu kufanya kazi nasi Sudan",
 
     "country.ng.name": "Nigeria",
@@ -758,8 +766,6 @@ window.IFSHHE_I18N = {
     "footer.insta": "Instagram",
     "footer.instaSoon": "Instagram — inakuja hivi karibuni",
     "footer.based": "Makao yake Uingereza",
-    "footer.visits": "Ziara tangu kuzinduliwa",
-    "footer.visitsLabel": "Kihesabu wageni",
     "footer.copyright": "Taasisi ya Kimataifa ya Elimu ya Afya ya Ngono na VVU. Haki zote zimehifadhiwa.",
 
     /* thank-you.html */
@@ -807,7 +813,7 @@ window.IFSHHE_I18N = {
 
     /* Hero */
     "hero.kicker": "Mai zaman kanta · Masu sa kai ke jagoranta · Mazauna Birtaniya",
-    "hero.title": "Ilimin lafiyar jima'i mai ɗorewa.",
+    "hero.title": "Gina ilimin lafiyar jima'i da HIV mai ɗorewa a faɗin duniya",
     "hero.lede": "Mu gidauniya ce da masu sa kai ke jagoranta, likitoci daga Birtaniya. Muna aiki kafaɗa da kafaɗa da likitoci, ma'aikatan jinya da malamai a Sudan, Najeriya da Tanzaniya don gina ilimin lafiyar jima'i, HIV da ciwon hanta da zai ci gaba tun bayan mun koma gida — an tsara shi tare da likitocin gida, ba a madadinsu ba.",
     "hero.cta1": "Haɗa gwiwa da mu",
     "hero.cta2": "Duba inda muke aiki",
@@ -866,15 +872,19 @@ window.IFSHHE_I18N = {
     "where.yearLabel": "Shekara",
     "where.didLabel": "Abin da muka yi",
     "where.ledLabel": "Abin da ya haifar",
+    "where.soon": "Cikakken bayani na nan tafe.",
     "where.selected": "an zaɓa",
     "where.homeLabel": "Gida",
 
     "country.sd.name": "Sudan",
-    "country.sd.partner": "SHAWG",
-    "country.sd.summary": "Shirin tushe kan cututtukan da ake ɗauka ta hanyar jima'i, da aka gina kuma aka koyar tare da SHAWG ga likitoci a faɗin Sudan.",
-    "country.sd.b1": "Shirin horo na tushe kan cututtukan jima'i da aka tsara tare da SHAWG",
-    "country.sd.b2": "Koyarwa bisa marasa lafiya kan gano da kuma magance cututtukan jima'i da suka fi yawa",
-    "country.sd.outcome": "Likitocin gida yanzu suna da kwas na tushe da za su gina a kai.",
+    "country.sd.partner": "SHAWG · Ma'aikatar Lafiya ta Sudan",
+    "country.sd.when": "Fabrairu–Maris 2023",
+    "country.sd.summary": "Kwasanmu na farko: kwas na tushe na kwana uku kan cututtukan da ake ɗauka ta hanyar jima'i ga likitoci a Khartoum, tare da Ƙungiyar Aiki kan HIV/AIDS ta Sudan (SHAWG), kuma Ma'aikatar Lafiya ta Sudan ta amince da shi.",
+    "country.sd.b1": "Mun horar da likitoci 42 a Cibiyar Maganin Rage Ƙarfin HIV ta Omdurman",
+    "country.sd.b2": "Mun daidaita kwas na tushe kan cututtukan jima'i na Birtaniya don Sudan, muka ƙara HIV, ciwon hanta, matsalolin jima'i da tarin fuka, tare da masu jawabi na gida",
+    "country.sd.b3": "Laccoci, aikin ƙananan ƙungiyoyi, wasan kwaikwayo da zaman aiki da hannu, bisa al'adu da addinin yankin",
+    "country.sd.b4": "Tare da tallafin Shirin Ci Gaban Lafiya na IOM, Asusun Taimakon Marasa Lafiya da WHO",
+    "country.sd.outcome": "Mahalarta sun ba koyarwar maki 4–5 cikin 5 kuma sun nemi ƙari, wanda ya kai ga shirye-shiryen gudanar da kwasa-kwasai a wasu yankunan Sudan da horar da masu horarwa na gida.",
     "country.sd.cta": "Tambaya game da aiki da mu a Sudan",
 
     "country.ng.name": "Najeriya",
@@ -1013,8 +1023,6 @@ window.IFSHHE_I18N = {
     "footer.insta": "Instagram",
     "footer.instaSoon": "Instagram — nan ba da daɗewa ba",
     "footer.based": "Mazauna Birtaniya",
-    "footer.visits": "Ziyarori tun ƙaddamarwa",
-    "footer.visitsLabel": "Ƙidayar baƙi",
     "footer.copyright": "Gidauniyar Ƙasa da Ƙasa don Ilimin Lafiyar Jima'i da HIV. An kiyaye dukkan haƙƙoƙi.",
 
     /* thank-you.html */

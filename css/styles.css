@@ -757,8 +757,6 @@ textarea.input { resize: vertical; min-height: 140px; line-height: 1.5; }
   font-size: 13px; color: var(--color-on-navy-muted);
 }
 .copyright { margin: 0; max-width: none; }
-.visits { margin: 0; padding: .35rem .9rem; border-radius: var(--radius-pill); background: rgba(255, 255, 255, .08); white-space: nowrap; }
-#visit-count { color: var(--color-amber-on-navy); font-weight: 700; font-variant-numeric: tabular-nums; }
 @media (max-width: 959.98px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
   .footer-brand { grid-column: 1 / -1; }

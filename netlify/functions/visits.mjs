@@ -1,16 +1,17 @@
-// Visitor counter.   GET /api/visits -> { count }
-//                    POST /api/visits -> counts this visitor once per day, returns { count, counted }
+// Visitor counter (private — the number is not shown on the site).
+//   GET  /api/visits?key=VISITS_KEY -> { count }   (403 without the right key)
+//   POST /api/visits                -> counts this visitor once per day, returns { ok }
 //
 // Privacy: nothing identifying is stored. De-duplication uses a SHA-256 hash of
 // (IP + user agent + date + secret salt); the hash is deleted after two days and
 // cannot be reversed into an IP address. No cookies are set.
 //
 // Hardening: bot user agents are not counted; POST is accepted only from the
-// site's own origin; any storage failure returns 503 (the page then hides the
-// counter); responses are never cached.
+// site's own origin; any storage failure returns 503 (the page ignores it);
+// responses are never cached.
 //
-// Set VISITS_SALT to a long random string in Netlify (Site configuration >
-// Environment variables). Blobs credentials are injected automatically on
+// Set VISITS_SALT and VISITS_KEY to long random strings in Netlify (Site
+// configuration > Environment variables). Blobs credentials are injected automatically on
 // Netlify; BLOBS_SITE_ID / BLOBS_TOKEN are only for running outside it.
 import { getStore } from "@netlify/blobs";
 import { createHash } from "node:crypto";
@@ -43,16 +44,20 @@ export default async (req, context) => {
   try {
     const s = store();
     const current = Number(await s.get("visits")) || 0;
-    if (req.method === "GET") return json({ count: current });
+    if (req.method === "GET") {
+      const key = new URL(req.url).searchParams.get("key");
+      if (!process.env.VISITS_KEY || key !== process.env.VISITS_KEY) return json({ error: "forbidden" }, 403);
+      return json({ count: current });
+    }
 
     const ua = req.headers.get("user-agent") || "";
-    if (!ua || BOT_RE.test(ua)) return json({ count: current, counted: false });
+    if (!ua || BOT_RE.test(ua)) return json({ ok: true });
 
     const ip = context?.ip || req.headers.get("x-nf-client-connection-ip") || "0";
     const salt = process.env.VISITS_SALT || "change-me";
     const today = dayKey();
     const key = `seen/${today}/` + createHash("sha256").update(`${ip}|${ua}|${today}|${salt}`).digest("hex").slice(0, 32);
-    if (await s.getMetadata(key)) return json({ count: current, counted: false });
+    if (await s.getMetadata(key)) return json({ ok: true });
     await s.set(key, "1", { metadata: { t: Date.now() } });
 
     // Blobs has no atomic increment; re-read right before writing to keep the race
@@ -66,10 +71,10 @@ export default async (req, context) => {
       const { blobs } = await s.list({ prefix: `seen/${dayKey(2)}/` });
       await Promise.all(blobs.map((b) => s.delete(b.key)));
     }
-    return json({ count: next, counted: true });
+    return json({ ok: true });
   } catch (err) {
     console.error("visits:", err?.message || err);
-    return json({ error: "unavailable" }, 503);   // the page hides the counter
+    return json({ error: "unavailable" }, 503);   // the page ignores failures
   }
 };
 

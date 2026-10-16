@@ -348,3 +348,14 @@
 
 /* Without JavaScript there is no map: the chips and panels carry the content. */
 html:not(.js) .map-frame { display: none; }
+
+/* Countries whose full write-up isn't ready: add data-soon to the panel in
+   index.html. The detailed text stays in the page source for later; remove
+   data-soon to show it again. */
+.country-soon { display: none; }
+.country-panel[data-soon] :is(.country-year, h4, .country-list, .country-outcome) { display: none; }
+.country-panel[data-soon] .country-soon {
+  display: block;
+  color: var(--color-muted);
+  font-style: italic;
+}

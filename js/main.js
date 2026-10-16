@@ -3,7 +3,7 @@
  * Everything here is progressive enhancement: the page reads fine without it.
  * Order: helpers → header/nav → language menu → drawer → reveal → gallery →
  * dynamic content (partners, members, stats, Instagram) → contact form →
- * floating CTA → visitor counter → year.
+ * floating CTA → visitor counter (private) → year.
  */
 document.documentElement.classList.add("js");
 
@@ -373,22 +373,13 @@ document.documentElement.classList.add("js");
     mobileMQ.addEventListener("change", updateFloat);
   }
 
-  /* ---------- Visitor counter: count once per session, hide if unavailable ---------- */
-  (async function visits() {
-    const box = $("#visits"), out = $("#visit-count");
-    if (!box || !out) return;
+  /* ---------- Visitor counter: count once per session (private — nothing shown on the page) ---------- */
+  (function visits() {
     const KEY = "ifshhe_counted";
-    let counted = false;
-    try { counted = sessionStorage.getItem(KEY) === "1"; } catch {}
-    try {
-      const res = await fetch("/api/visits", { method: counted ? "GET" : "POST", headers: { Accept: "application/json" } });
-      if (!res.ok) return;
-      const { count } = await res.json();
-      if (typeof count !== "number") return;
-      try { sessionStorage.setItem(KEY, "1"); } catch {}
-      out.textContent = count.toLocaleString(document.documentElement.lang || "en");
-      box.hidden = false;
-    } catch {}
+    try { if (sessionStorage.getItem(KEY) === "1") return; } catch {}
+    fetch("/api/visits", { method: "POST", headers: { Accept: "application/json" } })
+      .then((res) => { if (res.ok) { try { sessionStorage.setItem(KEY, "1"); } catch {} } })
+      .catch(() => {});
   })();
 
   /* ---------- Year ---------- */
