@@ -14,7 +14,7 @@
  *         (country.<code>.name / .partner / .summary / .b1… / .outcome / .cta)
  *   lat, lon   where the map pin sits (roughly the centre of the country)
  *   year  optional, e.g. "2023" — shown in the panel when filled in
- *   home  true marks the United Kingdom as the home of the volunteer faculty
+ *   home  optional; true draws a "home" pin (not used at present)
  *
  * To add a country: copy a line, change the values, add its country.xx.*
  * texts in i18n.js, AND add a chip + a panel for it in index.html (copy an
@@ -23,9 +23,8 @@
  */
 window.IFSHHE_COUNTRIES = [
   { id: "729", code: "sd", year: "2023", lat: 15.5, lon: 30.5 },           // Sudan (Khartoum, Feb–Mar 2023)
-  { id: "566", code: "ng", year: "", lat: 9.1, lon: 8.7 },                 // Nigeria
+  { id: "566", code: "ng", year: "2024", lat: 9.1, lon: 8.7 },             // Nigeria (online workshop, 2024)
   { id: "834", code: "tz", year: "2026", lat: -6.4, lon: 35.0 },           // Tanzania (RDTC, Moshi, February 2026)
-  { id: "826", code: "gb", year: "", lat: 54.0, lon: -2.5, home: true },   // United Kingdom
 ];
 
 /*
